@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90d5b25c259c49499e3ace6ade9a297, type: 3}
+  m_Name: GhostProtocol
+  m_EditorClassIdentifier: 
+  playerTarget: {fileID: 0}
+  Neighbour: 5
+  maxForce: 3
+  maxVelocity: 2

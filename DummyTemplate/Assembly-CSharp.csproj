@@ -54,11 +54,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Resources\Scripts\FieldOfView.cs" />
-    <Compile Include="Assets\Resources\Scripts\Ghost.cs" />
     <Compile Include="Assets\Resources\Data\BoolVariable.cs" />
-    <Compile Include="Assets\TriggerWin.cs" />
+    <Compile Include="Assets\Resources\Scripts\FieldOfView.cs" />
     <Compile Include="Assets\CameraFollowPlayer.cs" />
+    <Compile Include="Assets\Resources\Scripts\Ghost.cs" />
+    <Compile Include="Assets\TriggerWin.cs" />
+    <Compile Include="Assets\Resources\Data\FollowProtocol.cs" />
+    <Compile Include="Assets\Resources\Scripts\PointOfViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />

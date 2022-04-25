@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rigidBody;
-    Camera viewCamera;
+    public Camera viewCamera;
 
     Vector3 velocity;
 
@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        viewCamera = Camera.main;
         originalPosition = transform.position; 
     }
 
