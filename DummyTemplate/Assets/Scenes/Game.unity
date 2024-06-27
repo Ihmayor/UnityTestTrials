@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -322,12 +322,12 @@ GameObject:
   - component: {fileID: 242048813}
   - component: {fileID: 242048812}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &242048811
 RectTransform:
   m_ObjectHideFlags: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
   isGameWon: {fileID: 11400000, guid: cad40556f66997a45af26fccb399970a, type: 2}
   playerTarget: {fileID: 697750844}
   coolDownDurationInSeconds: 0.4
-  movementSpeed: 0.055
+  movementSpeed: 0.025
 --- !u!1001 &549430680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   isGameWon: {fileID: 11400000, guid: cad40556f66997a45af26fccb399970a, type: 2}
   playerTarget: {fileID: 697750844}
   coolDownDurationInSeconds: 0.4
-  movementSpeed: 0.055
+  movementSpeed: 0.025
 --- !u!1 &759757348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,7 +1740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 2.35, y: 10.33, z: -0.43}
+  m_LocalPosition: {x: 2.35, y: 9.23, z: -0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   isGameWon: {fileID: 11400000, guid: cad40556f66997a45af26fccb399970a, type: 2}
   playerTarget: {fileID: 697750844}
   coolDownDurationInSeconds: 0.6
-  movementSpeed: 0.055
+  movementSpeed: 0.025
 --- !u!1001 &1095333652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2096,7 +2096,7 @@ MonoBehaviour:
   isGameWon: {fileID: 11400000, guid: cad40556f66997a45af26fccb399970a, type: 2}
   playerTarget: {fileID: 697750844}
   coolDownDurationInSeconds: 0.4
-  movementSpeed: 0.055
+  movementSpeed: 0.025
 --- !u!1001 &1162972901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2174,7 +2174,7 @@ MonoBehaviour:
   isGameWon: {fileID: 11400000, guid: cad40556f66997a45af26fccb399970a, type: 2}
   playerTarget: {fileID: 697750844}
   coolDownDurationInSeconds: 0.4
-  movementSpeed: 0.055
+  movementSpeed: 0.025
 --- !u!4 &1169638185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4749779357243744, guid: 682255724988b1541af0927787d8456e, type: 3}
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   isGameWon: {fileID: 11400000, guid: cad40556f66997a45af26fccb399970a, type: 2}
   playerTarget: {fileID: 697750844}
   coolDownDurationInSeconds: 0.7
-  movementSpeed: 0.055
+  movementSpeed: 0.025
 --- !u!1001 &1600085798
 PrefabInstance:
   m_ObjectHideFlags: 0

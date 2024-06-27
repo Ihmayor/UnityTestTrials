@@ -23,7 +23,6 @@ public class FieldOfView : MonoBehaviour
 
     void Update()
     {
-        Console.WriteLine("AAAAAAAAAAAA");
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
@@ -58,7 +57,6 @@ public class FieldOfView : MonoBehaviour
 
         foreach (Transform target in visibleTargets)
         {
-            Console.WriteLine("LOL What");
             target.gameObject.GetComponent<Ghost>().setIsSeen();
         }
     }
