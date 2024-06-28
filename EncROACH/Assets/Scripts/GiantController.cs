@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GiantController : MonoBehaviour
 {
-    private const float AwakeDuration = 4f;
+    private const float AwakeDuration = 7f;
     public GameState GameState;
 
     public GameObject Hole;
@@ -86,6 +86,6 @@ public class GiantController : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        GameState.NoiseLevel = 0;
+        GameState.Reset();
     }
 }

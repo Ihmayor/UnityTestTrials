@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 direction;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,7 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(UpKey))
         {
@@ -48,11 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.MovePosition(rigidBody.position + moveSpeed * direction * Time.fixedDeltaTime);
         }
-
         direction = Vector3.zero;
     }
-
-
-
-
 }
