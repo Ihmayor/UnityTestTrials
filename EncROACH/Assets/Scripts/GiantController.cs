@@ -31,7 +31,7 @@ public class GiantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameState.NoiseLevel > GameState.NoiseAcceptabilityLevel)
+        if (GameState.NoiseLevel > GameState.NoiseAcceptabilityLevel && !IsEyeOut)
         {
             GameState.IsEyeVisible = true;
             GameState.NoiseLevel = 0;

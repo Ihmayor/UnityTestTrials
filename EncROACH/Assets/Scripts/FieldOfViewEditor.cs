@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+#if (UNITY_EDITOR) 
+
 
 [CustomEditor(typeof(EyeFOV))]
+
 public class FieldOfViewEditor : Editor
 {
     private void OnSceneGUI()
@@ -26,3 +29,4 @@ public class FieldOfViewEditor : Editor
 
     }
 }
+#endif

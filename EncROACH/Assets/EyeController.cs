@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EyeController : MonoBehaviour
@@ -40,20 +41,19 @@ public class EyeController : MonoBehaviour
         {
             yield return new WaitForSeconds(delay);
             float angle = Mathf.PingPong(Time.time * speed, angleRange*2) - angleRange;
-            transform.rotation = Quaternion.Euler(transform.localRotation.x, -angle, transform.localRotation.z);
+            transform.rotation = Quaternion.Euler(transform.localRotation.x, -angle + -180, transform.localRotation.z);
 
-            if (FOVScript != null && 
-                FOVScript.visibleTargets.Count > 0 && 
-                FOVScript.visibleTargets.Find(x => x.GetComponent<PlayerController>()) != null)
+            if (FOVScript.visibleTargets.Count > 0)
             {
-                Debug.Log("WHAAAAAAAAAAAAA");
-                //gameState.SpotCount++;
-                if (gameState.SpotCount > gameState.SpotLimit)
-                {
-                    gameState.IsFullySpotted = true;
-                }
+                gameState.SpotCount++;
+                //if (gameState.SpotCount > gameState.SpotLimit)
+                //{
+                //    gameState.IsFullySpotted = true;
+                //}
+                FOVScript.visibleTargets.Clear();
             }
         }
         hasStartedScan = false;
     }
+
 }

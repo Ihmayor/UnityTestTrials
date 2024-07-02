@@ -19,14 +19,26 @@ public class EyeFOV : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(FindTargetsWithDelay), 0.2f);
+        StartCoroutine(nameof(FindTargetsWithDelay), .2f);
     }
 
-
-    IEnumerator FindTargetsWithDelay()
+    void Update()
     {
-        while (true)
+    }
+    private void OnEnable()
+    {
+        StartCoroutine(nameof(FindTargetsWithDelay), .2f);
+    }
+    private void OnDisable()
+    {
+        visibleTargets.Clear();
+    }
+
+    IEnumerator FindTargetsWithDelay(float delay)
+    {
+        while (true && enabled)
         {
+            yield return new WaitForSeconds(delay);
             FindVisibleTargets();
         }
     }
@@ -34,6 +46,8 @@ public class EyeFOV : MonoBehaviour
 
     void FindVisibleTargets()
     {
+        if (!enabled)
+            return;
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
