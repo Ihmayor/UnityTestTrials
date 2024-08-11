@@ -17,17 +17,18 @@ public class EyeFOV : MonoBehaviour
 
     public List<Transform> visibleTargets = new List<Transform>();
 
+    private float scanDelay = 0.08f;
+
+    private readonly float validYAxis = 0.7f;
+
     void Start()
     {
-        StartCoroutine(nameof(FindTargetsWithDelay), .2f);
+        StartCoroutine(nameof(FindTargetsWithDelay), scanDelay);
     }
 
-    void Update()
-    {
-    }
     private void OnEnable()
     {
-        StartCoroutine(nameof(FindTargetsWithDelay), .2f);
+        StartCoroutine(nameof(FindTargetsWithDelay), scanDelay);
     }
     private void OnDisable()
     {
@@ -46,9 +47,11 @@ public class EyeFOV : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        if (!enabled)
-            return;
         visibleTargets.Clear();
+
+        if (!enabled || transform.position.y < validYAxis)
+            return;
+
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
@@ -64,12 +67,6 @@ public class EyeFOV : MonoBehaviour
                     visibleTargets.Add(target);
                 }
             }
-        }
-
-
-        if (visibleTargets.Count > 0 && visibleTargets.Count(x => x.GetComponent<PlayerController>()) > 0)
-        {
-            Debug.Log("WHAAAAAAAAAAAAA");
         }
     }
 

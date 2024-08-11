@@ -8,10 +8,8 @@ public class EyeController : MonoBehaviour
     public float angleRange;
     public float speed;
 
-
     public GameState gameState;
     private bool hasStartedScan = false;
-
 
     private EyeFOV FOVScript;
 
@@ -24,13 +22,13 @@ public class EyeController : MonoBehaviour
     private void Update()
     {
         if (FOVScript != null)
-        {
+        {         
             FOVScript.enabled = gameState.IsEyeVisible;
         }
 
         if (gameState != null && gameState.IsEyeVisible && !hasStartedScan)
         {
-            StartCoroutine("Scan", .05f);
+            StartCoroutine("Scan", .02f);
         }
     }
 

@@ -9,9 +9,9 @@ public class NoiseMaker : MonoBehaviour
     [Range(0.01f, 1.1f)]
     public float NoiseFactor; 
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer != 5)
+        if (collision.gameObject.tag.Contains("Player"))
         {
             gameState.NoiseLevel += NoiseFactor;
         }

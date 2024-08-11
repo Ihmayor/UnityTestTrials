@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GiantController : MonoBehaviour
@@ -20,6 +16,7 @@ public class GiantController : MonoBehaviour
 
     private readonly float AwakeFactor = 0.5f;
 
+    private int trackSpotCount;
 
     // Start is called before the first frame update
     void Start()
@@ -29,31 +26,44 @@ public class GiantController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (GameState.NoiseLevel > GameState.NoiseAcceptabilityLevel && !IsEyeOut)
+        if (IsNoisy() && !GameState.IsEyeVisible)
         {
-            GameState.IsEyeVisible = true;
+            IsEyeOut = true;
+
+            //Reset Noise level now that you're awake.
             GameState.NoiseLevel = 0;
         }
+
         if (GameState.IsEyeVisible != IsEyeOut)
         {
             Swap();
         }
     }
 
+    private bool IsNoisy()
+    {
+        return (GameState.NoiseLevel > GameState.NoiseAcceptabilityLevel);
+    }
+
     void SleepEye()
     {
-        if (GameState.NoiseLevel <= AwakeFactor)
+        //Check if noise level or were spotted is still unacceptable
+        if ((IsNoisy() || trackSpotCount < GameState.SpotCount) && IsEyeOut)
         {
-            GameState.IsEyeVisible = false;
+            Debug.Log(trackSpotCount);
+            //Reset Noise level && tracked spot count now that you're awake.
+            trackSpotCount = GameState.SpotCount;
+            GameState.NoiseLevel = 0;
+            Invoke("SleepEye", AwakeDuration);
+            return;
         }
         else
         {
-            //Keep Eye Awake if noise is still being made
-            Invoke("SleepEye", AwakeDuration);
-            GameState.NoiseLevel = 0;
-        }
+            IsEyeOut = false;
+        } 
+
     }
 
     private void Swap()
@@ -61,28 +71,37 @@ public class GiantController : MonoBehaviour
         Vector3 currentEyePosition = Eye.transform.position; 
         Vector3 currentHolePosition = Hole.transform.position;
 
-        if (GameState.IsEyeVisible)
+        //Awaken Eye
+        if (IsEyeOut)
         {
-            if (OriginalHolePosition  == currentEyePosition && OriginalEyePosition == currentHolePosition)
-            {
-                IsEyeOut = true;
-                Invoke("SleepEye", AwakeDuration);
-                return;
-            }
             Eye.transform.position = Vector3.MoveTowards(currentEyePosition, OriginalHolePosition, Time.deltaTime);
             Hole.transform.position = Vector3.MoveTowards(currentHolePosition, OriginalEyePosition, Time.deltaTime);
+
+            if (currentEyePosition == OriginalHolePosition &&
+                currentHolePosition == OriginalEyePosition && 
+                !GameState.IsEyeVisible)
+            {
+                trackSpotCount = GameState.SpotCount;
+                Invoke("SleepEye", AwakeDuration);
+                GameState.IsEyeVisible = true;
+            }
         }
+        //Close Eye
         else
         {
-            if (OriginalHolePosition == currentHolePosition && OriginalEyePosition == currentEyePosition)
-            {
-                IsEyeOut = false;
-                return;
-            }
             Eye.transform.position = Vector3.MoveTowards(currentEyePosition, OriginalEyePosition, Time.deltaTime);
             Hole.transform.position = Vector3.MoveTowards(currentHolePosition, OriginalHolePosition, Time.deltaTime);
+
+            if (currentEyePosition == OriginalEyePosition && 
+                currentHolePosition == OriginalHolePosition &&
+                GameState.IsEyeVisible)
+            {
+                GameState.IsEyeVisible = false;
+            }
         }
     }
+
+
 
     private void OnApplicationQuit()
     {

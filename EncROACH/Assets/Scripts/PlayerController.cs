@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
+            rigidBody.ResetCenterOfMass();
             rigidBody.MovePosition(rigidBody.position + moveSpeed * direction * Time.fixedDeltaTime);
         }
         direction = Vector3.zero;

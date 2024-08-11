@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8337747b30e1a04aba55cca49d6860d, type: 3}
   m_Name: MainState
   m_EditorClassIdentifier: 
-  SpotLimit: 3
+  SpotLimit: 0
   SpotCount: 0
   IsFullySpotted: 0
   NoiseLevel: 0
   IsEyeVisible: 0
-  NoiseAcceptabilityLevel: 1.81
+  NoiseAcceptabilityLevel: 1.12
