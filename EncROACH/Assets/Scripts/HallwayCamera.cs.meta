@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 39fcb18b703e97342869220f7fc83f38
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - textMesh: {instanceID: 0}
+  - ScientistsFound: {fileID: 11400000, guid: a772dc941198af14caa5d39146d65621, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

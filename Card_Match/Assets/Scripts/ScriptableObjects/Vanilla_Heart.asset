@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fefd71e660e7264fbec09f1ffe2a0d4, type: 3}
+  m_Name: Vanilla_Heart
+  m_EditorClassIdentifier: 
+  color: Vanilla
+  posX: 0
+  posY: 0
+  scale: 1
+  stickerSprite: {fileID: 582204185, guid: bbd468f28ebef1443ab3f357bfbfce96, type: 3}
