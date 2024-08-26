@@ -18,9 +18,9 @@ public class Draggable : MonoBehaviour
         {
             //get the touch position
             Ray hitRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             //check that the mouse is overtop this sticker
             RaycastHit2D hit = Physics2D.GetRayIntersection(hitRay, Mathf.Infinity);
-
 
             if (hit.collider != null && hit.collider.gameObject == this.gameObject)
             {

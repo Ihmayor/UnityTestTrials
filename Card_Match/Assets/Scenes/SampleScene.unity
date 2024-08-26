@@ -215,7 +215,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307371135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 676897713}
   - component: {fileID: 676897714}
   - component: {fileID: 676897715}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vanilla_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 1089071232}
   - component: {fileID: 1089071233}
   - component: {fileID: 1089071234}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rose_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 1206748505}
   - component: {fileID: 1206748506}
   - component: {fileID: 1206748507}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sage_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 1351090854}
   - component: {fileID: 1351090855}
   - component: {fileID: 1351090856}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sage_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1193,7 +1193,7 @@ GameObject:
   - component: {fileID: 1596832469}
   - component: {fileID: 1596832470}
   - component: {fileID: 1596832471}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vanilla_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1310,7 +1310,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 1631770635}
   - component: {fileID: 1631770636}
   - component: {fileID: 1631770637}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rose_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1475,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 1674098752}
   - component: {fileID: 1674098753}
   - component: {fileID: 1674098754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Buff_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1641,7 +1641,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1791,7 +1791,7 @@ GameObject:
   - component: {fileID: 2086495733}
   - component: {fileID: 2086495734}
   - component: {fileID: 2086495735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Buff_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1908,7 +1908,7 @@ PolygonCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1950,6 +1950,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1721299546}
   - {fileID: 307371137}
   - {fileID: 1590678385}
-  - {fileID: 1721299546}
