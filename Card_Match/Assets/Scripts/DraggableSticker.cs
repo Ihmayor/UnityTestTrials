@@ -11,7 +11,6 @@ public class DraggableSticker : MonoBehaviour
     [SerializeField]
     private Sticker stickerAsset;
 
-    private Sprite _sprite;
     private Vector3 _originalPosition;
 
     private float _startX;
@@ -22,7 +21,6 @@ public class DraggableSticker : MonoBehaviour
 
     public void Awake()
     {
-        _sprite = GetComponent<SpriteRenderer>().sprite;
         _originalPosition = transform.position;
         _isFromSheet = true;
     }
@@ -79,15 +77,20 @@ public class DraggableSticker : MonoBehaviour
         _isFromSheet = false;
     }
 
-    public void Convert(RectTransform rect)
+    public void Convert(RectTransform pRectTransform)
     {
         Destroy(GetComponent<Rigidbody2D>());
-        transform.SetParent(rect.parent, false);
+        transform.SetParent(pRectTransform.parent, false);
 
-        //Card
         transform.position = Camera.main.WorldToScreenPoint(transform.localPosition);
-        Image UIImage = gameObject.AddComponent<Image>();
-        UIImage.sprite = _sprite;
+
+        Image UIImage = gameObject.GetComponent<Image>();
+        if (gameObject.GetComponent<Image>() == null)
+        {
+            UIImage = gameObject.AddComponent<Image>();
+        }
+
+        UIImage.sprite = stickerAsset.stickerSprite;
         UIImage.preserveAspect = true;
         UIImage.rectTransform.sizeDelta = stickerAsset.scale;
     }
