@@ -8,6 +8,14 @@ public class Sticker : ScriptableObject
     public string color;
     public float posX;
     public float posY;
-    public float scale;
+    public Vector2 scale;
     public Sprite stickerSprite;
+
+    public Sticker (GameObject gameObject)
+    {
+        stickerSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        Vector3 screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        posX = screenPoint.x;
+        posY = screenPoint.y;
+    }
 }

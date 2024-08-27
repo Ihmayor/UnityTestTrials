@@ -15,5 +15,5 @@ MonoBehaviour:
   color: Vanilla
   posX: 0
   posY: 0
-  scale: 1
+  scale: {x: 44, y: 85}
   stickerSprite: {fileID: -1716602450, guid: bbd468f28ebef1443ab3f357bfbfce96, type: 3}
