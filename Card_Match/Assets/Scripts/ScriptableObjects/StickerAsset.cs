@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PromptAsset;
 
 [CreateAssetMenu(menuName = "Custom/Sticker")]
 public class StickerAsset : ScriptableObject
 {
-    public string color;
+    public Affect color;
+    public Affect shape;
     public float posX;
     public float posY;
     public Vector2 scale;

@@ -1,5 +1,7 @@
+using PlasticGui.Configuration;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Custom/Prompt")]
@@ -9,6 +11,9 @@ public class PromptAsset : ScriptableObject
 
     public Sprite PromptSprite;
 
+    public Type PromptType;
+
+    public Affect AffectedSticker;
 
     public enum Type 
     { 
@@ -27,4 +32,5 @@ public class PromptAsset : ScriptableObject
         Vanilla,
         Buff
     }
+    
 }

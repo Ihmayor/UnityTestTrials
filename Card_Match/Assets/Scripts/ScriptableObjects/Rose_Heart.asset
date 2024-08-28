@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fefd71e660e7264fbec09f1ffe2a0d4, type: 3}
   m_Name: Rose_Heart
   m_EditorClassIdentifier: 
-  color: Rose
+  color: 3
+  shape: 1
   posX: 0
   posY: 0
   scale: {x: 52, y: 44}

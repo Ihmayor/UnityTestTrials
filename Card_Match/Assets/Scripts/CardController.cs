@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,9 @@ public class CardController : MonoBehaviour
     Sprite _sprite;
 
     public string ConvertedUIPositionName { get; private set; }
+
+    public bool isLocked { get; private set; }
+    private PromptAsset.Affect AffectToReject;
 
     private void Awake()
     {
@@ -23,10 +27,36 @@ public class CardController : MonoBehaviour
         _sprite = pSprite;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //Lock if this card is affected by Lose Prompt
+    public void LockCard(PromptAsset.Affect affectedSticker )
     {
-        collision.gameObject.transform.parent = transform;
+        isLocked = true;
+        AffectToReject = affectedSticker;
     }
+
+    private void OnTriggerEnter2D(Collider2D pCollision)
+    {
+        AddStickerOnCollision(pCollision);
+    }
+
+    private void AddStickerOnCollision(Collider2D pCollision)
+    {
+        //Add Stickers
+        if (pCollision.gameObject.GetComponent<DraggableSticker>() != null)
+        {
+            if (isLocked)
+            {
+                StickerAsset sticker = pCollision.gameObject.GetComponent<DraggableSticker>().stickerAsset;
+                if (sticker.color == AffectToReject || sticker.shape == AffectToReject)
+                {
+                    Destroy(pCollision.gameObject);
+                    return;
+                }
+            }
+            pCollision.gameObject.transform.parent = transform;
+        }
+    }
+
 
     public GameObject Convert(RectTransform pRect)
     {

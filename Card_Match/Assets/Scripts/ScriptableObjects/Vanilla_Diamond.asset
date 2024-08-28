@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fefd71e660e7264fbec09f1ffe2a0d4, type: 3}
   m_Name: Vanilla_Diamond
   m_EditorClassIdentifier: 
-  color: Vanilla
+  color: 4
+  shape: 0
   posX: 0
   posY: 0
   scale: {x: 44, y: 85}
