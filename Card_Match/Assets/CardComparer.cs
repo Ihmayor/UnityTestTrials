@@ -13,6 +13,18 @@ public class CardComparer : MonoBehaviour
     [SerializeField]
     GameObject changed;
 
+
+    public static bool CompareCards(GameObject originalCard, 
+                             GameObject matchCard, 
+                             out List<Tuple<string, float, float>> serializedOriginalCard, 
+                             out List<Tuple<string,float,float>> serializedMatchCard)
+    {
+        serializedOriginalCard = SerializeCard(originalCard);
+        serializedMatchCard = SerializeCard(matchCard);
+
+        return SerializeCardString(originalCard) == SerializeCardString(matchCard);
+    }
+
     public void Compare()
     {
         string serializedOriginal = SerializeCardString(original);

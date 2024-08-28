@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,23 +12,42 @@ public class PromptValidator : MonoBehaviour
     GameStateAsset MainGame;
 
     public GameObject ChangeCard;
-
+    public GameObject OriginalCard;
+    private void Update()
+    {
+        if (IsAllPromptsExecuted(OriginalCard, ChangeCard, MainGame.Move, MainGame.Lose, MainGame.Add))
+        {
+            ChangeCard.GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else
+        {
+            ChangeCard.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
 
     public void ValidatePrompt()
     {
         ApplyPrompts(ChangeCard, MainGame.Keep, MainGame.Move, MainGame.Lose, MainGame.Add);
     }
 
-
     public void ApplyPrompts(GameObject pCard, PromptAsset pKeep, PromptAsset pMove, PromptAsset pLose, PromptAsset pAdd)
     {
         List<DraggableSticker> stickers = pCard.GetComponentsInChildren<DraggableSticker>().ToList();
-        List<string> keepStickers = new List<string> { pKeep.AffectedSticker.ToString() };
-        List<string> affectedStickers = new List<PromptAsset> { pMove, pLose, pAdd}.Select(prompt => nameof(prompt.AffectedSticker)).ToList();
 
+        //Keep prompt should not allow those stickers from being moved
+        //Add prompt should also affect stickers already there if and only if they don't have a move prompt.
+        List<string> immovableStickers = new List<string> { pKeep.AffectedSticker.ToSafeString() };
+
+        if (pMove.AffectedSticker != pAdd.AffectedSticker)
+        {
+            immovableStickers.Add(pAdd.AffectedSticker.ToSafeString());
+        }
+
+
+        List<string> affectedStickers = new List<PromptAsset> { pMove, pLose}.Select(prompt => prompt.AffectedSticker.ToSafeString()).ToList();
 
         List<DraggableSticker> foundStickers = stickers
-            .Where(x => IsStickerAffectedByPrompts(keepStickers, x))
+            .Where(x => IsStickerAffectedByPrompts(immovableStickers, x))
             .ToList();
         foundStickers.AddRange(stickers.Where(x => !IsStickerAffectedByPrompts(affectedStickers, x)));
 
@@ -35,7 +55,61 @@ public class PromptValidator : MonoBehaviour
         {
             sticker.enabled = false;
         }
+    }
 
+    public bool IsAllPromptsExecuted(GameObject pOriginalCard, GameObject pChangedCard, PromptAsset pMove, PromptAsset pLose, PromptAsset pAdd)
+    {
+        List<Tuple<string, float, float>> originalCardSerialized; 
+        List<Tuple<string, float, float>> changedCardSerialized;
+        bool hasNoChangesBeenMade = CardComparer.CompareCards(pOriginalCard, pChangedCard, out originalCardSerialized, out changedCardSerialized);
+        if (hasNoChangesBeenMade)
+            return false;
+        //Loses
+        int originalNumOfLoseStickers = originalCardSerialized
+                                                       .Where(sticker => sticker.Item1.Contains(pLose.AffectedSticker.ToSafeString()))
+                                                       .Count();
+        int changedNumOfLoseStickers = changedCardSerialized
+                                                       .Where(sticker => sticker.Item1.Contains(pLose.AffectedSticker.ToSafeString()))
+                                                       .Count();
+
+        if (originalNumOfLoseStickers <= changedNumOfLoseStickers)
+            return false;
+
+
+
+        //Adds
+        int originalNumOfAddStickers = originalCardSerialized
+                                                        .Where(sticker => sticker.Item1.Contains(pAdd.AffectedSticker.ToSafeString()))
+                                                        .Count();
+        int changedNumOfAddStickers = changedCardSerialized
+                                                        .Where(sticker => sticker.Item1.Contains(pAdd.AffectedSticker.ToSafeString()))
+                                                        .Count();
+
+        if (originalNumOfAddStickers >= changedNumOfAddStickers)
+            return false;
+
+
+        //Moves
+        Tuple<string,float,float>[] moveableStickers = originalCardSerialized
+                                                        .Where(sticker => sticker.Item1.Contains(pMove.AffectedSticker.ToSafeString()))
+                                                        .ToArray();
+        Tuple<string,float,float>[] changedStickers = changedCardSerialized
+                                                        .Where(sticker => sticker.Item1.Contains(pMove.AffectedSticker.ToSafeString()))
+                                                        .ToArray();
+        if (moveableStickers.Length > changedStickers.Length) 
+        {
+            return false;
+        }
+
+        for (int i = 0; i< moveableStickers.Length; i++)
+        {
+            if (moveableStickers[i].Item2 == changedStickers[i].Item2 &&
+                moveableStickers[i].Item3 == changedStickers[i].Item3)
+                return false;
+        }
+
+        
+        return true;
     }
 
     public void GeneratePrompts()
@@ -76,7 +150,7 @@ public class PromptValidator : MonoBehaviour
 
     public PromptAsset GetRandomPrompt(List<PromptAsset> availableCards)
     {
-        int randomIndex = Random.Range(0, availableCards.Count);
+        int randomIndex = UnityEngine.Random.Range(0, availableCards.Count);
         return availableCards[randomIndex];
     }
 
@@ -86,7 +160,7 @@ public class PromptValidator : MonoBehaviour
 
     public bool IsStickerAffectedByPrompts(List<string> prompts, DraggableSticker sticker)
     {
-        string[] stickerNames = sticker.name.Split('_');
+        string[] stickerNames = sticker.stickerAsset.name.Split('_');
         return prompts.Contains(stickerNames[0]) || prompts.Contains(stickerNames[1]);
     }
 

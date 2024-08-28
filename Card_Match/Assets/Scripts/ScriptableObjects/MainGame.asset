@@ -45,7 +45,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b590e09133d5acb4d8f532958af533e7, type: 2}
   - {fileID: 11400000, guid: b3f884dc17f6a94468260561c6501d08, type: 2}
   Keep: {fileID: 11400000, guid: ddfa89d40d96458448bc1c903c52428f, type: 2}
-  Lose: {fileID: 11400000, guid: 2af51b377f405bd4886dbdc906f9afe9, type: 2}
-  Add: {fileID: 11400000, guid: 800da36c5a92e2c458cfa90d4d3608a4, type: 2}
-  Move: {fileID: 11400000, guid: 928bb2d18a728d34db92d2607aeb04f3, type: 2}
+  Lose: {fileID: 11400000, guid: a52e019b2da5a00438e8cf5bf87a1edd, type: 2}
+  Add: {fileID: 11400000, guid: 4a2d1638ac7e26242b1b459206ed3dc2, type: 2}
+  Move: {fileID: 11400000, guid: 03d2e62b29617a94aa038db5dabc90cb, type: 2}
   CardPrefab: {fileID: 724665452252586716, guid: 09ca891b98028c743b230eee9542f478, type: 3}
