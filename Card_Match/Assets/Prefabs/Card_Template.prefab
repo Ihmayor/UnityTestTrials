@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7771912779492719451}
   - component: {fileID: 8077772939913600330}
   - component: {fileID: 6030391229023570001}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Card_Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,11 +111,11 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: -1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

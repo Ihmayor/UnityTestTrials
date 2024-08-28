@@ -5,12 +5,12 @@ using UnityEngine;
 public class HandUI : MonoBehaviour
 {
     [SerializeField]
-    GameState _gameState;
+    GameStateAsset _gameState;
 
     private void FixedUpdate()
     {
         if (_gameState != null &&
-             _gameState.phase == GameState.GamePhase.Memorize &&
+             _gameState.phase == GameStateAsset.Phase.Memorize &&
              gameObject.activeSelf)
         {
             gameObject.SetActive(false);

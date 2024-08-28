@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Custom/Sticker")]
-public class Sticker : ScriptableObject
+public class StickerAsset : ScriptableObject
 {
     public string color;
     public float posX;
@@ -11,7 +11,7 @@ public class Sticker : ScriptableObject
     public Vector2 scale;
     public Sprite stickerSprite;
 
-    public Sticker (GameObject gameObject)
+    public StickerAsset (GameObject gameObject)
     {
         stickerSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);

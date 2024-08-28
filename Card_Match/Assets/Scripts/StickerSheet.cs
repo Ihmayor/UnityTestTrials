@@ -11,6 +11,6 @@ public class StickerSheet : MonoBehaviour
 
     public void EnterStage()
     {
-        LeanTween.moveY(gameObject, transform.position.y - DistanceExitUp, 0.2f).setEaseInOutElastic();
+        LeanTween.moveY(gameObject, transform.position.y - DistanceExitUp, 0.2f).setEaseInSine();
     }
 }

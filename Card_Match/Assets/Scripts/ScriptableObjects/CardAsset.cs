@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Custom/Card")]
 
-public class Card : ScriptableObject
+public class CardAsset : ScriptableObject
 {
     public Vector3 HoverDestination;
     public Vector3 SelectedPosition;

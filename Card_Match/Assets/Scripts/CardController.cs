@@ -27,15 +27,23 @@ public class CardController : MonoBehaviour
     {
         collision.gameObject.transform.parent = transform;
     }
-    public void Convert(RectTransform pRect)
+
+    public GameObject Convert(RectTransform pRect)
     {
-        //Create a copy of the world space CardAsset as we convert the CardAsset to a canvas UI
+        //Create a copy of the world space card as we convert the card to a canvas UI
         GameObject worldSpaceCard = Instantiate(gameObject, transform.parent);
+        worldSpaceCard.name = pRect.gameObject.name + "(Clone)";
         worldSpaceCard.SetActive(false);
-        Destroy(worldSpaceCard.GetComponent<BoxCollider2D>());
-        foreach (var item in worldSpaceCard.GetComponentsInChildren<DraggableSticker>())
+        worldSpaceCard.GetComponent<CardController>().ConvertedUIPositionName = pRect.gameObject.name;
+
+        DraggableSticker[] stickerChildrenOriginal = gameObject.GetComponentsInChildren<DraggableSticker>();
+        DraggableSticker[] stickerChildrenWorldSpace = worldSpaceCard.GetComponentsInChildren<DraggableSticker>();
+
+        for (int i =0; i <worldSpaceCard.transform.childCount;i++)
         {
+            DraggableSticker item = stickerChildrenWorldSpace[i];
             item.DisableFromSheetClone();
+            item.stickerAsset = stickerChildrenOriginal[i].stickerAsset;
         }
 
         foreach (DraggableSticker sticker in GetComponentsInChildren<DraggableSticker>()) {
@@ -46,11 +54,11 @@ public class CardController : MonoBehaviour
         CardUI defaultCard = pRect.gameObject.GetComponent<CardUI>();
         CardUI newUI = gameObject.AddComponent<CardUI>();
        
-        newUI.SetCard(defaultCard.CardAsset);
-        newUI.OnSelectCard.AddListener(() => { HandManager.SelectCard(gameObject); });
+        newUI.SetCard(defaultCard.card);
+        newUI.OnSelectCard.AddListener(() => {HandManager.SelectCard(gameObject); });
         newUI.OnDeselectCard.AddListener(() => { HandManager.DeselectCard(gameObject); });
 
-        //Card
+        //card
         transform.position = Camera.main.WorldToScreenPoint(transform.position);
         Image UIImage = gameObject.GetComponent<Image>();
         if (UIImage == null)
@@ -61,13 +69,15 @@ public class CardController : MonoBehaviour
         UIImage.sprite = _sprite;
         UIImage.rectTransform.sizeDelta = pRect.sizeDelta;
 
-        //Card Contents
+        //card Contents
         transform.SetParent(pRect.transform.parent, true);
 
         UIImage.rectTransform.position = pRect.position;
         UIImage.rectTransform.eulerAngles = pRect.eulerAngles;
 
         ConvertedUIPositionName = pRect.gameObject.name;
+
+        return worldSpaceCard;
     }
 
 }

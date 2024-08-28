@@ -15,10 +15,13 @@ public class HandManager : MonoBehaviour
     [SerializeField]
     private UnityEvent _onScramblePhaseEnter;
 
+    [SerializeField]
+    private UnityEvent _onScramblePhaseStay;
+
     private GameObject _currentCard;
 
     [SerializeField]
-    GameState _gameState;
+    GameStateAsset _gameState;
 
     [SerializeField]
     float MemorizePhaseDuration = 10f;
@@ -28,8 +31,11 @@ public class HandManager : MonoBehaviour
     [SerializeField]
     List<RectTransform> CardUIPositions = new List<RectTransform>(TOTAL_CARDS_TO_DECORATE);
 
-    static Queue<GameObject> SelectedCardsUI = new Queue<GameObject>(2);
+
+    public static Queue<GameObject> SelectedCardsUI = new Queue<GameObject>(2);
+
     private static List<GameObject> CardsSubmitted;
+
 
 
     private bool _isScrambling = false;
@@ -51,14 +57,14 @@ public class HandManager : MonoBehaviour
             return;
 
         RectTransform cardUIPosition = CardUIPositions[_gameState.NumOfDecoratedCards];
-        _currentCard.GetComponent<CardController>().Convert(cardUIPosition);
+        GameObject worldSpaceCardClone =  _currentCard.GetComponent<CardController>().Convert(cardUIPosition);
+        CardsSubmitted.Add(worldSpaceCardClone);
 
         _gameState.NumOfDecoratedCards++;
 
         bool IsThereMoreCardsToDecorate = _gameState.NumOfDecoratedCards < TOTAL_CARDS_TO_DECORATE;
         if (IsThereMoreCardsToDecorate)
         {
-            CardsSubmitted.Add(_currentCard);
             GameObject newCard = Instantiate(_gameState.CardPrefab);
             newCard.GetComponent<CardController>().SetSprite(_gameState.CardBackingSprites[_gameState.NumOfDecoratedCards]);
             _currentCard = newCard;
@@ -84,42 +90,55 @@ public class HandManager : MonoBehaviour
     {
         SelectedCardsUI.Dequeue();
     }
-
+     
     public void SubmittedSelectedCards()
     {
-        List<string> selectedPositions = SelectedCardsUI.Select(x => x.name).ToList();
+        List<string> selectedPositions = SelectedCardsUI.Select(x => x.GetComponent<CardController>().ConvertedUIPositionName).ToList();
         List<GameObject> selectedCards = CardsSubmitted.Where(x => selectedPositions.Contains(x.GetComponent<CardController>().ConvertedUIPositionName)).ToList();
 
-        //First Card;
+        _onScramblePhaseStay.Invoke();
+
+
+        //First card;
         GameObject firstCard = selectedCards[0];
         GameObject secondCard = selectedCards[1];
 
-        LeanTween.moveLocalX(firstCard, firstCard.transform.position.x - 40, 0.2f).setEaseInOutBack();
-        LeanTween.moveLocalX(secondCard, secondCard.transform.position.x + 40, 0.2f).setEaseInOutBack();
+        firstCard.SetActive(true);
+        LeanTween
+            .moveLocalX(firstCard, firstCard.transform.position.x - 3, 2f)
+            .setEaseOutQuart()
+            .setOnComplete(() => 
+            {
+                secondCard.SetActive(true);
+                LeanTween
+                .moveLocalX(secondCard, secondCard.transform.position.x + 3, 2f)
+                .setEaseOutQuart()
+                .setOnComplete(() => 
+                { 
+                    ScramblePhase(new List<GameObject>() { firstCard, secondCard }); 
+                });
+            });
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_gameState.NumOfDecoratedCards == 3 && _gameState.phase == GameState.GamePhase.Decorate && !_isMemorizing)
+        if (_gameState.NumOfDecoratedCards == 3 && _gameState.phase == GameStateAsset.Phase.Decorate && !_isMemorizing)
         {
             _isMemorizing = true;
             StartCoroutine(MemorizePhase(5f, MemorizePhaseDuration));
         }
 
-        if (_gameState.phase == GameState.GamePhase.Scramble && !_isScrambling)
+        if (_gameState.phase == GameStateAsset.Phase.Scramble && !_isScrambling)
         {
             _isScrambling = true;
             _onScramblePhaseEnter.Invoke();
-            ScramblePhase();
         }
 
     }
 
-    void ScramblePhase()
+    void ScramblePhase(List<GameObject> cardsToScramble)
     {
-        
-        //Select the Cards
 
     }
 
@@ -127,7 +146,7 @@ public class HandManager : MonoBehaviour
     IEnumerator MemorizePhase(float delayInSeconds, float phaseDurationInSeconds)
     {
         yield return new WaitForSeconds(delayInSeconds);
-        _gameState.phase = GameState.GamePhase.Memorize;
+        _gameState.phase = GameStateAsset.Phase.Memorize;
         _onMemorizePhaseEnter.Invoke();
 
         //Load Cards

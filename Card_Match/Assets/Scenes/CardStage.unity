@@ -623,8 +623,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fd9442743ec24cae1d0427eef58ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: bd767385faac5374a9522e01c1b3d191, type: 2}
-  _onSelectCard:
+  card: {fileID: 11400000, guid: bd767385faac5374a9522e01c1b3d191, type: 2}
+  OnSelectCard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselectCard:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &417050040
@@ -791,8 +794,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fd9442743ec24cae1d0427eef58ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: e89f7593cf8356040ab1e2ac67d76c3c, type: 2}
-  _onSelectCard:
+  card: {fileID: 11400000, guid: e89f7593cf8356040ab1e2ac67d76c3c, type: 2}
+  OnSelectCard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselectCard:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &494774232
@@ -1400,8 +1406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fd9442743ec24cae1d0427eef58ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: bd767385faac5374a9522e01c1b3d191, type: 2}
-  _onSelectCard:
+  card: {fileID: 11400000, guid: bd767385faac5374a9522e01c1b3d191, type: 2}
+  OnSelectCard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselectCard:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1246104973
@@ -1498,6 +1507,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+  _onScramblePhaseStay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1721299547}
+        m_TargetAssemblyTypeName: StickerSheet, Assembly-CSharp
+        m_MethodName: EnterStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 996368346}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   _gameState: {fileID: 11400000, guid: f02009626fe25194e84d7187d203437b, type: 2}
   MemorizePhaseDuration: 10
@@ -1724,8 +1760,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fd9442743ec24cae1d0427eef58ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: e975b437a714bec4aab79b5873054d0a, type: 2}
-  _onSelectCard:
+  card: {fileID: 11400000, guid: e975b437a714bec4aab79b5873054d0a, type: 2}
+  OnSelectCard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselectCard:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1295481312
@@ -1948,8 +1987,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fd9442743ec24cae1d0427eef58ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: e89f7593cf8356040ab1e2ac67d76c3c, type: 2}
-  _onSelectCard:
+  card: {fileID: 11400000, guid: e89f7593cf8356040ab1e2ac67d76c3c, type: 2}
+  OnSelectCard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselectCard:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1479641317
@@ -2319,8 +2361,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fd9442743ec24cae1d0427eef58ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: e975b437a714bec4aab79b5873054d0a, type: 2}
-  _onSelectCard:
+  card: {fileID: 11400000, guid: e975b437a714bec4aab79b5873054d0a, type: 2}
+  OnSelectCard:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselectCard:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2008653321
@@ -2445,11 +2490,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1246104974}
         m_TargetAssemblyTypeName: HandManager, Assembly-CSharp
-        m_MethodName: SelectCard
-        m_Mode: 2
+        m_MethodName: SubmittedSelectedCards
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: CardUI, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2549,6 +2594,14 @@ PrefabInstance:
       propertyPath: _onStickerClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1590678386}
+    - target: {fileID: 2224207171271540335, guid: d750b8cf53614f1488c1054174c2c644, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224207171271540335, guid: d750b8cf53614f1488c1054174c2c644, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2972601130284115409, guid: d750b8cf53614f1488c1054174c2c644, type: 3}
       propertyPath: _onStickerClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

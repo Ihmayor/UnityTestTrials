@@ -5,12 +5,12 @@ using UnityEngine;
 public class OpponentUI : MonoBehaviour
 {
     [SerializeField]
-    GameState _gameState;
+    GameStateAsset _gameState;
 
     private void FixedUpdate()
     {
         if (_gameState != null &&
-             _gameState.phase == GameState.GamePhase.Scramble &&
+             _gameState.phase == GameStateAsset.Phase.Scramble &&
              gameObject.activeSelf)
         {
             gameObject.SetActive(false);

@@ -9,7 +9,7 @@ public class DraggableSticker : MonoBehaviour
     private UnityEvent _onStickerClick;
 
     [SerializeField]
-    private Sticker stickerAsset;
+    public StickerAsset stickerAsset;
 
     private Vector3 _originalPosition;
 
@@ -24,7 +24,6 @@ public class DraggableSticker : MonoBehaviour
         _originalPosition = transform.position;
         _isFromSheet = true;
     }
-    
 
     // Update is called once per frame
     void Update()
@@ -56,13 +55,14 @@ public class DraggableSticker : MonoBehaviour
         }
 
     }
-
+    
     void ClickDrag()
     {
         if (_isFromSheet)
         {
             GameObject newSticker = Instantiate(gameObject, transform.parent);
             newSticker.transform.position = _originalPosition;
+            newSticker.GetComponent<DraggableSticker>().stickerAsset = stickerAsset;
         }
         _isFromSheet = false;
 

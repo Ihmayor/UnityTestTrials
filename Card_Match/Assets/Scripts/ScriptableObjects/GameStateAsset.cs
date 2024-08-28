@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Custom/GameState")]
-public class GameState : ScriptableObject
+public class GameStateAsset : ScriptableObject
 {
 
-    public GamePhase phase;
+    public Phase phase;
     public bool IsWin;
     
     public int NumOfDecoratedCards;
@@ -15,7 +15,7 @@ public class GameState : ScriptableObject
 
     public GameObject CardPrefab;
 
-    public enum GamePhase{
+    public enum Phase{
         Decorate,
         Memorize,
         Scramble,
@@ -25,7 +25,7 @@ public class GameState : ScriptableObject
 
     public void ResetDefaultValues()
     {
-        phase = GamePhase.Decorate;
+        phase = Phase.Decorate;
         NumOfDecoratedCards = 0;
         IsWin = false;
     }
@@ -34,23 +34,23 @@ public class GameState : ScriptableObject
     {
         switch (phase)
         {
-            case GamePhase.Decorate:
-                phase = GamePhase.Memorize; 
+            case Phase.Decorate:
+                phase = Phase.Memorize; 
                 break;
-            case GamePhase.Memorize:
-                phase = GamePhase.Scramble;
+            case Phase.Memorize:
+                phase = Phase.Scramble;
                 break;
-            case GamePhase.Scramble:
-                phase = GamePhase.Callout;
+            case Phase.Scramble:
+                phase = Phase.Callout;
                 break;
-            case GamePhase.Callout:
-                phase = GamePhase.Compare;
+            case Phase.Callout:
+                phase = Phase.Compare;
                 break;
-            case GamePhase.Compare:
-                phase = GamePhase.Decorate;
+            case Phase.Compare:
+                phase = Phase.Decorate;
                 break;
             default:
-                phase = GamePhase.Decorate;
+                phase = Phase.Decorate;
                 break;
         }
 
