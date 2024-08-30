@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CompareScreenUI : MonoBehaviour
@@ -9,8 +10,6 @@ public class CompareScreenUI : MonoBehaviour
 
     [SerializeField]
     GuessAsset GuessState;
-
-    
     
     [SerializeField]
     CompareCardUI playerKeep;
@@ -24,8 +23,6 @@ public class CompareScreenUI : MonoBehaviour
     [SerializeField]
     CompareCardUI playerMove;
 
-
-
     [SerializeField]
     CompareCardUI opponentKeep;
 
@@ -38,6 +35,9 @@ public class CompareScreenUI : MonoBehaviour
     [SerializeField]
     CompareCardUI opponentMove;
 
+    [SerializeField]
+    public GameObject winOpponent, winPlayer;
+
     public Sprite AddNoGuessSprite;
     public Sprite MoveNoGuessSprite;
     public Sprite LoseNoGuessSprite;
@@ -46,6 +46,26 @@ public class CompareScreenUI : MonoBehaviour
     void Awake()
     {
         LoadCards();
+    }
+
+    private void LateUpdate()
+    {
+        if (MainGame.GameEnd || MainGame.phase != GameStateAsset.Phase.Compare)
+        {
+            return;
+        }
+
+        int cardsEvaluated = new CompareCardUI[4] { playerAdd, playerMove, playerKeep, playerLose }.Where(card => card.IsEvaluated || card.IsFlipped).Count();
+        if (cardsEvaluated == 4)
+        {
+            MainGame.GameEnd = true;
+            int playerTotal = winPlayer.transform.childCount;
+            int opponentTotal = winOpponent.transform.childCount;
+            if (playerTotal!= 0 && playerTotal >= opponentTotal)
+                MainGame.IsWin = true;
+            else
+                MainGame.IsWin = false;
+        }
     }
 
     void LoadCards()

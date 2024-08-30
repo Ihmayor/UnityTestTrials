@@ -60,11 +60,11 @@ public class PromptManager : MonoBehaviour
         //Loses
         int originalNumOfLoseStickers = originalCardSerialized
                                                        .Where(sticker => sticker.Item1.Contains(pLose.AffectedSticker.ToSafeString()) &&
-                                                       !sticker.Item1.Contains(pKeep.AffectedSticker.ToSafeString()) 
-)
+                                                       !sticker.Item1.Contains(pKeep.AffectedSticker.ToSafeString()))
                                                        .Count();
         int changedNumOfLoseStickers = changedCardSerialized
-                                                       .Where(sticker => sticker.Item1.Contains(pLose.AffectedSticker.ToSafeString()))
+                                                       .Where(sticker => sticker.Item1.Contains(pLose.AffectedSticker.ToSafeString()) &&
+                                                       !sticker.Item1.Contains(pKeep.AffectedSticker.ToSafeString()))
                                                        .Count();
 
         if (originalNumOfLoseStickers != 0 && originalNumOfLoseStickers <= changedNumOfLoseStickers)
@@ -92,25 +92,29 @@ public class PromptManager : MonoBehaviour
                                                             sticker.Item1.Contains(pMove.AffectedSticker.ToSafeString()))
                                                         .ToArray();
         Tuple<string,float,float>[] changedStickers = changedCardSerialized
-                                                        .Where(sticker => sticker.Item1.Contains(pMove.AffectedSticker.ToSafeString()))
+                                                        .Where(sticker =>
+                                                            !sticker.Item1.Contains(pAdd.AffectedSticker.ToSafeString()) &&
+                                                            !sticker.Item1.Contains(pKeep.AffectedSticker.ToSafeString()) &&
+                                                            sticker.Item1.Contains(pMove.AffectedSticker.ToSafeString()))
                                                         .ToArray();
-        if(moveableStickers.Length == 1 && pLose.AffectedSticker == pMove.AffectedSticker)
+        if (moveableStickers.Length == 1 && pLose.AffectedSticker == pMove.AffectedSticker)
         {
             return true;
         }
 
         if (moveableStickers.Length > changedStickers.Length) 
         {
+            if (pLose.AffectedSticker == pMove.AffectedSticker)
+                return true;
             return false;
         }
 
-        for (int i = 0; i< moveableStickers.Length; i++)
+        for (int i = 0; i < moveableStickers.Length; i++)
         {
             if (moveableStickers[i].Item2 == changedStickers[i].Item2 &&
                 moveableStickers[i].Item3 == changedStickers[i].Item3)
                 return false;
         }
-
         
         return true;
     }
@@ -123,11 +127,11 @@ public class PromptManager : MonoBehaviour
 
         pGameState.OpponentAdd = addCard;
         pGameState.OpponentMove = moveCard;
-        pGameState.OpponentKeep = addCard;
+        pGameState.OpponentKeep = keepCard;
         pGameState.OpponentLose = loseCard;
     }
 
-    static void ApplyPromptToCard(GameObject pCard, GameStateAsset pGameState, PromptAsset keepCard, PromptAsset loseCard, PromptAsset moveCard, PromptAsset addCard)
+    static void ApplyPromptToCard(GameObject pCard, GameStateAsset pGameState, PromptAsset keepCard, PromptAsset moveCard, PromptAsset addCard, PromptAsset loseCard)
     {
         List<DraggableSticker> stickersToChange = pCard
                                                   .GetComponentsInChildren<DraggableSticker>()
@@ -158,15 +162,20 @@ public class PromptManager : MonoBehaviour
             for (int i = 0; i < stickersToMove.Count; i++)
             {
                 DraggableSticker stickerToMove = stickersToMove[i];
-                stickerToMove.gameObject.transform.localPosition = Vector3.zero + Vector3.one * (0.1f * i);
+                stickerToMove.gameObject.transform.localPosition = Vector3.zero + Vector3.one * (20 * i);
             }
         }
 
         //Add Move
+        List<DraggableSticker> stickersToAdd = stickersToChange
+                                                .Where(sticker => sticker.stickerAsset.color == addCard.AffectedSticker ||
+                                                                  sticker.stickerAsset.shape == addCard.AffectedSticker)
+                                                .ToList();
         //Find a sticker position from available stickers
-        if (stickersToChange.Count > 0)
+        if (stickersToAdd.Count > 0)
         {
-            Instantiate(stickersToChange.First(), pCard.transform);
+            DraggableSticker sticker = Instantiate(stickersToChange.First(), pCard.transform);
+            sticker.transform.localPosition += new Vector3(15, -30);
         }
         else
         {
@@ -179,7 +188,7 @@ public class PromptManager : MonoBehaviour
                                             .First().stickerSprite;
 
             sticker.GetComponent<Image>().sprite = loadStickerSprite;
-            sticker.transform.position = new Vector3(0.5f, 0.2f);
+            sticker.transform.localPosition = new Vector3(30f, 50f);
         }
     }
 

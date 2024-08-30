@@ -12,6 +12,7 @@ public class CalloutButtonUI : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void OnPointerClick(PointerEventData eventData)
     {
         _onClick.Invoke();
+        LeanTween.pause(gameObject);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -26,4 +27,5 @@ public class CalloutButtonUI : MonoBehaviour, IPointerClickHandler, IPointerEnte
         LeanTween.scale(gameObject, Vector2.one, 0.1f);
         LeanTween.rotateZ(gameObject, 0, 0.2f).setEaseInBounce();
     }
+
 }

@@ -9,6 +9,8 @@ public class CardPromptValidator : MonoBehaviour
     private GameObject _originalCard;
     private void LateUpdate()
     {
+        if (_mainGame.GameEnd || _originalCard == null || _mainGame.Keep == null || _mainGame.Move == null || _mainGame.Lose == null || _mainGame.Add == null)
+            return;
         if (PromptManager.IsAllPromptsExecuted(_originalCard, 
                                                 gameObject, 
                                                 _mainGame.Keep, 

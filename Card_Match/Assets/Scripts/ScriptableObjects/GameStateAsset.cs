@@ -9,6 +9,10 @@ public class GameStateAsset : ScriptableObject
     public float MemorizePhaseDuration = 10f;
     public Phase phase;
     public bool IsWin;
+    public bool GameEnd;
+
+    public int opponentCardsWon = 0;
+    public int playerCardsWon = 0;
     
     public int NumOfDecoratedCards;
 
@@ -42,6 +46,20 @@ public class GameStateAsset : ScriptableObject
         phase = Phase.Decorate;
         NumOfDecoratedCards = 0;
         IsWin = false;
+        GameEnd = false;
+
+        Keep = null;
+        Lose = null;
+        Add  = null;
+        Move = null;
+
+        OpponentKeep = null;
+        OpponentLose = null;
+        OpponentAdd  = null;
+        OpponentMove = null;
+
+        opponentCardsWon = 0;
+        playerCardsWon = 0;
     }
 
     public void NextGamePhase()

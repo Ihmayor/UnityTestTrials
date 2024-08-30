@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -21,12 +22,18 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     [SerializeField]
     Vector2 PilePosition;
 
+    [SerializeField]
+    GameObject winOpponent;
+
+    [SerializeField]
+    GameObject winPlayer;
 
     public CompareCardUI PairedCard;
     Image _imageOnCard;
     Vector3 _originalPosition;
     
-    bool _isFlipped;
+    public bool IsFlipped { get; private set; }
+    public bool IsEvaluated { get; private set; }
     public bool IsWin { get; private set; }
 
     void Start()
@@ -37,15 +44,16 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (LeanTween.isTweening(gameObject) || _isFlipped)
+        if (LeanTween.isTweening(gameObject) || IsFlipped)
             return;
+        IsFlipped = true;
+
         FlipCardToFront();
         PairedCard.FlipCardToFront();
-        _isFlipped = true;
         
-        float delayInSeconds = 4f;
+        float delayInSeconds = 1.4f;
 
-        if (!IsWin)
+        if (IsWin)
         {
             StartCoroutine(MovePairTowardsSelf(delayInSeconds));
         }
@@ -79,33 +87,42 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (LeanTween.isTweening(gameObject) || IsFlipped || IsEvaluated)
+            return;
         LeanTween.moveY(gameObject, _originalPosition.y, 0.1f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (LeanTween.isTweening(gameObject) || IsFlipped || IsEvaluated)
+            return;
         LeanTween.moveY(gameObject, _originalPosition.y + _hoverDistance, 0.1f);
     }
 
     public IEnumerator MovePairTowardsSelf(float delayInSeconds)
     {
         yield return new WaitForSeconds(delayInSeconds);
-        if (IsWin && PairedCard.IsWin)
+        if (IsWin == PairedCard.IsWin)
         {
             MovePairTowardsPile();
         }
         else
         {
-            LeanTween.move(gameObject, WinPosition, 0.3f);
-            LeanTween.move(PairedCard.gameObject, WinPosition + new Vector2(0, _hoverDistance), 0.15f);
+            LeanTween.moveLocal(gameObject, this.WinPosition, 0.3f).setOnComplete(() => { gameObject.transform.SetParent(winPlayer.transform); });
+            LeanTween.moveLocal(PairedCard.gameObject, this.WinPosition + new Vector2(0, _hoverDistance), 0.15f).setOnComplete(() => { PairedCard.gameObject.transform.SetParent(winPlayer.transform); }); ;
         }
+        yield return new WaitForSeconds(5f);
+        IsEvaluated = true;
+        yield return null;
     }
-
 
     public void MovePairTowardsPile()
     {
-        LeanTween.move(gameObject, PilePosition, 0.3f);
-        LeanTween.move(PairedCard.gameObject, PilePosition + new Vector2(0, _hoverDistance), 0.15f);
+        LeanTween.moveLocal(gameObject, PilePosition, 0.3f);
+        LeanTween.moveLocal(PairedCard.gameObject, PilePosition + new Vector2(0, _hoverDistance), 0.15f);
+        LeanTween.rotateZ(gameObject, 85, 0.4f);
+        LeanTween.rotateZ(PairedCard.gameObject, 96, 0.4f);
+        IsEvaluated = true;
     }
 
 }

@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.41687, y: -464.55243}
+  m_AnchoredPosition: {x: 105, y: 106}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &165075573309047700
@@ -91,6 +91,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: -10
   FlipSpeed: 0.5
+  WinPosition: {x: 0, y: 0}
+  PilePosition: {x: 0, y: 0}
+  PairedCard: {fileID: 0}
 --- !u!1 &2219474322789012433
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.58313, y: -464.55243}
+  m_AnchoredPosition: {x: 303, y: 106}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3080113786958492598
@@ -182,6 +185,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: -10
   FlipSpeed: 0.5
+  WinPosition: {x: 0, y: 0}
+  PilePosition: {x: 0, y: 0}
+  PairedCard: {fileID: 0}
 --- !u!1 &3662665784688943033
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainGame: {fileID: 11400000, guid: f02009626fe25194e84d7187d203437b, type: 2}
+  GuessState: {fileID: 0}
   playerKeep: {fileID: 6751393546628020118}
   playerLose: {fileID: 2107000691544507313}
   playerAdd: {fileID: 8215742377381461857}
@@ -307,6 +314,10 @@ MonoBehaviour:
   opponentLose: {fileID: 361974163561336445}
   opponentAdd: {fileID: 8796475753029816930}
   opponentMove: {fileID: 8692934790414426755}
+  AddNoGuessSprite: {fileID: 0}
+  MoveNoGuessSprite: {fileID: 0}
+  LoseNoGuessSprite: {fileID: 0}
+  KeepNoGuessSprite: {fileID: 0}
 --- !u!1 &3816177144259815476
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -411.41687, y: -464.55243}
+  m_AnchoredPosition: {x: -291, y: -218}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2687996612806242744
@@ -398,6 +409,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: 10
   FlipSpeed: 0.5
+  WinPosition: {x: 3, y: -368}
+  PilePosition: {x: 3, y: 46}
+  PairedCard: {fileID: 0}
 --- !u!1 &5327555217583363680
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -213.41687, y: -464.55243}
+  m_AnchoredPosition: {x: -93, y: 106}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5395232757343227510
@@ -489,6 +503,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: -10
   FlipSpeed: 0.5
+  WinPosition: {x: 0, y: 0}
+  PilePosition: {x: 0, y: 0}
+  PairedCard: {fileID: 0}
 --- !u!1 &5402399828764452357
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.58313, y: -464.55243}
+  m_AnchoredPosition: {x: 303, y: -218}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7375349252357570833
@@ -580,6 +597,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: 10
   FlipSpeed: 0.5
+  WinPosition: {x: 3, y: -368}
+  PilePosition: {x: 3, y: 46}
+  PairedCard: {fileID: 0}
 --- !u!1 &5404996254108924625
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.41687, y: -464.55243}
+  m_AnchoredPosition: {x: 105, y: -218}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5254881559577530641
@@ -671,6 +691,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: 10
   FlipSpeed: 0.5
+  WinPosition: {x: 3, y: -368}
+  PilePosition: {x: 3, y: 46}
+  PairedCard: {fileID: 0}
 --- !u!1 &5872851057019321904
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +719,7 @@ Transform:
   m_GameObject: {fileID: 5872851057019321904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115, y: 283, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -731,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 6974512712831422705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115, y: 674, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -776,7 +799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -411.41687, y: -464.55243}
+  m_AnchoredPosition: {x: -291, y: 118}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5026272676071711157
@@ -832,6 +855,9 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: -10
   FlipSpeed: 0.5
+  WinPosition: {x: -93, y: 244}
+  PilePosition: {x: 3, y: 46}
+  PairedCard: {fileID: 0}
 --- !u!1 &8547107720384452974
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -213.41687, y: -464.55243}
+  m_AnchoredPosition: {x: -93, y: -218}
   m_SizeDelta: {x: 192.3149, y: 264.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2607978581742044082
@@ -923,3 +949,6 @@ MonoBehaviour:
   _front: {fileID: 0}
   _hoverDistance: 10
   FlipSpeed: 0.5
+  WinPosition: {x: 3, y: -368}
+  PilePosition: {x: 3, y: 46}
+  PairedCard: {fileID: 0}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CalloutCardUI : MonoBehaviour, IPointerClickHandler
 {
-    bool _isFlipped = false;
+    public bool IsFlipped { get; private set; }
     [SerializeField]
     Sprite _front;
     [SerializeField]
@@ -21,16 +21,17 @@ public class CalloutCardUI : MonoBehaviour, IPointerClickHandler
         _imageOnCard = GetComponent<Image>();
     }
 
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (LeanTween.isTweening(gameObject))
             return;
-        _isFlipped = !_isFlipped;
-        LeanTween.rotateY(gameObject, _isFlipped ? 90 : -90, FlipSpeed/2).setOnComplete(() => 
+        IsFlipped = !IsFlipped;
+        LeanTween.rotateY(gameObject, IsFlipped ? 90 : -90, FlipSpeed/2).setOnComplete(() => 
         {
-            _imageOnCard.sprite = _isFlipped ? _front : _back;
+            _imageOnCard.sprite = IsFlipped ? _front : _back;
             LeanTween.rotateY(gameObject,0, FlipSpeed);
-            gameObject.transform.SetSiblingIndex(_isFlipped ? 5 : 0);
+            gameObject.transform.SetSiblingIndex(IsFlipped ? 5 : 0);
         });
     }
 

@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 
@@ -26,6 +27,9 @@ public class HandManager : MonoBehaviour
     [SerializeField]
     private UnityEvent _onCalloutPhase;
 
+    [SerializeField]
+    private UnityEvent _onGameEnd;
+
     private GameObject _currentCard;
 
     [SerializeField]
@@ -39,7 +43,7 @@ public class HandManager : MonoBehaviour
 
     public static Queue<GameObject> SelectedCardsUI = new Queue<GameObject>(2);
 
-    private static List<GameObject> CardsSubmitted;
+    private static List<GameObject> CardsSubmitted = new List<GameObject>();
 
     private bool _isScrambling = false;
     private bool _isMemorizing = false;
@@ -48,8 +52,14 @@ public class HandManager : MonoBehaviour
 
     public void Start()
     {
-        CardsSubmitted = new List<GameObject>();
         _currentCard = Instantiate(_gameState.CardPrefab);
+        SceneManager.sceneLoaded += SceneLoad;
+    }
+
+    private void SceneLoad(Scene arg0, LoadSceneMode arg1)
+    {
+        SelectedCardsUI.Clear();
+        CardsSubmitted.Clear();
     }
 
     void Update()
@@ -66,6 +76,11 @@ public class HandManager : MonoBehaviour
             _onScramblePhaseEnter.Invoke();
         }
 
+        if (_gameState.GameEnd)
+        {
+            _onGameEnd.Invoke();
+        }
+
     }
 
     public void AddCard()
@@ -78,6 +93,16 @@ public class HandManager : MonoBehaviour
             return;
 
         RectTransform cardUIPosition = CardUIPositions[_gameState.NumOfDecoratedCards];
+        if (cardUIPosition == null)
+        {
+            Debug.Log(cardUIPosition);
+            Debug.Log(_gameState.NumOfDecoratedCards);
+        }    
+        if (_currentCard == null)
+            _currentCard = Instantiate(_gameState.CardPrefab);
+        if (CardsSubmitted == null)
+            CardsSubmitted = new List<GameObject>();
+
         GameObject worldSpaceCardClone =  _currentCard.GetComponent<CardController>().Convert(cardUIPosition);
         CardsSubmitted.Add(worldSpaceCardClone);
 
@@ -144,18 +169,22 @@ public class HandManager : MonoBehaviour
 
         //Animate Cards onto screen
         firstCard.SetActive(true);
+        firstCard.GetComponent<BoxCollider2D>().enabled = false;
         LeanTween
             .moveLocalX(firstCard, firstCard.transform.position.x - 3, 2f)
             .setEaseOutQuart()
             .setOnComplete(() => 
             {
                 secondCard.SetActive(true);
+                secondCard.GetComponent<BoxCollider2D>().enabled = false;
                 LeanTween
                 .moveLocalX(secondCard, secondCard.transform.position.x + 3, 2f)
                 .setEaseOutQuart()
                 .setOnComplete(() => 
                 { 
                     CardsScrambled = new List<GameObject>() { firstCard, secondCard };
+                    firstCard.GetComponent<BoxCollider2D>().enabled = true;
+                    secondCard.GetComponent<BoxCollider2D>().enabled = true;
                 });
             });
     }
@@ -209,4 +238,5 @@ public class HandManager : MonoBehaviour
     {
         _gameState.ResetDefaultValues();
     }
+
 }

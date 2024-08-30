@@ -28,10 +28,16 @@ public class CalloutScreenUI : MonoBehaviour
         CalloutCardUI selectedAdd  = AddDeck .GetTopCard();
         CalloutCardUI selectedMove = MoveDeck.GetTopCard();
 
-        Guess.Keep = GetPromptAsset(selectedKeep.GetSprite());
-        Guess.Lose = GetPromptAsset(selectedLose.GetSprite());
-        Guess.Add  = GetPromptAsset(selectedAdd.GetSprite());
-        Guess.Move = GetPromptAsset(selectedMove.GetSprite());
+        Guess.Keep = selectedKeep.IsFlipped ? GetPromptAsset(selectedKeep.GetSprite()) : null;
+        Guess.Lose = selectedLose.IsFlipped ? GetPromptAsset(selectedLose.GetSprite()) : null;
+        Guess.Add  = selectedAdd.IsFlipped  ? GetPromptAsset(selectedAdd.GetSprite())   : null;
+        Guess.Move = selectedMove.IsFlipped ? GetPromptAsset(selectedMove.GetSprite())  : null;
+
+        Guess.OpponentKeep = GetRandomPrompt(PromptAsset.Type.Keep);
+        Guess.OpponentLose = GetRandomPrompt(PromptAsset.Type.Lose);
+        Guess.OpponentAdd  = GetRandomPrompt(PromptAsset.Type.Add);
+        Guess.OpponentMove = GetRandomPrompt(PromptAsset.Type.Move);
+
         OnCalloutSent.Invoke();
     }
 
@@ -39,4 +45,12 @@ public class CalloutScreenUI : MonoBehaviour
     {
         return Resources.LoadAll<PromptAsset>("PromptCardAssets").Where(prompt => prompt.PromptSprite == pSprite).FirstOrDefault();
     }
+
+    PromptAsset GetRandomPrompt(PromptAsset.Type type)
+    {
+        int randomIndex = Random.Range(0, 6);
+        return Resources.LoadAll<PromptAsset>("PromptCardAssets").Where(prompt => prompt.PromptType == type).ToList()[randomIndex];
+    }
+
+
 }

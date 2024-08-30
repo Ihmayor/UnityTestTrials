@@ -58,6 +58,7 @@ public class DraggableSticker : MonoBehaviour
         if (_isFromSheet)
         {
             GameObject newSticker = Instantiate(gameObject, transform.parent);
+            newSticker.name = gameObject.name+gameObject.GetInstanceID();
             newSticker.transform.position = _originalPosition;
             newSticker.GetComponent<DraggableSticker>().stickerAsset = stickerAsset;
         }

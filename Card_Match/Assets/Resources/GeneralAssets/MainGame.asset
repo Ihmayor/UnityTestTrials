@@ -47,11 +47,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3f884dc17f6a94468260561c6501d08, type: 2}
   CardPrefab: {fileID: 724665452252586716, guid: 09ca891b98028c743b230eee9542f478, type: 3}
   StickerPrefab: {fileID: 8199808843910688466, guid: f9c17a7f3d4a28843b6073ac718a28f9, type: 3}
-  Keep: {fileID: 11400000, guid: 6ec7e02e000d998478ac8829f85a1e03, type: 2}
-  Lose: {fileID: 11400000, guid: a52e019b2da5a00438e8cf5bf87a1edd, type: 2}
-  Add: {fileID: 11400000, guid: 928bb2d18a728d34db92d2607aeb04f3, type: 2}
-  Move: {fileID: 11400000, guid: 800da36c5a92e2c458cfa90d4d3608a4, type: 2}
-  OpponentKeep: {fileID: 11400000, guid: 6ec7e02e000d998478ac8829f85a1e03, type: 2}
+  Keep: {fileID: 11400000, guid: ddfa89d40d96458448bc1c903c52428f, type: 2}
+  Lose: {fileID: 11400000, guid: fcefab8dd6246ef4cad65957c57e7b12, type: 2}
+  Add: {fileID: 11400000, guid: a277d5b7557e9d24980401bfb78a5b96, type: 2}
+  Move: {fileID: 11400000, guid: 140c3f5af6f851142bfce76633c12348, type: 2}
+  OpponentKeep: {fileID: 11400000, guid: 23404105629f26640adb4730042421c3, type: 2}
   OpponentLose: {fileID: 11400000, guid: dc9ceff2de5bdb84cac87166f840ce04, type: 2}
   OpponentAdd: {fileID: 11400000, guid: a277d5b7557e9d24980401bfb78a5b96, type: 2}
-  OpponentMove: {fileID: 11400000, guid: b3f884dc17f6a94468260561c6501d08, type: 2}
+  OpponentMove: {fileID: 11400000, guid: 140c3f5af6f851142bfce76633c12348, type: 2}
