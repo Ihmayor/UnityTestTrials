@@ -115,18 +115,29 @@ public class PromptManager : MonoBehaviour
         return true;
     }
 
-    public static void ApplyPrompts(GameObject pCard, GameStateAsset pGameState)
+    public static void ApplyPrompts(GameObject pCardOne, GameObject pCardTwo, GameStateAsset pGameState)
     {
         GeneratePrompts(pGameState, out PromptAsset keepCard, out PromptAsset loseCard, out PromptAsset moveCard, out PromptAsset addCard);
+        ApplyPromptToCard(pCardOne, pGameState, keepCard, moveCard, addCard, loseCard );
+        ApplyPromptToCard(pCardTwo, pGameState, keepCard, moveCard, addCard, loseCard );
+
+        pGameState.OpponentAdd = addCard;
+        pGameState.OpponentMove = moveCard;
+        pGameState.OpponentKeep = addCard;
+        pGameState.OpponentLose = loseCard;
+    }
+
+    static void ApplyPromptToCard(GameObject pCard, GameStateAsset pGameState, PromptAsset keepCard, PromptAsset loseCard, PromptAsset moveCard, PromptAsset addCard)
+    {
         List<DraggableSticker> stickersToChange = pCard
-                                                    .GetComponentsInChildren<DraggableSticker>()
-                                                    .Where(x => keepCard.AffectedSticker != x.stickerAsset.color || keepCard.AffectedSticker != x.stickerAsset.shape)
-                                                    .ToList();
-        
+                                                  .GetComponentsInChildren<DraggableSticker>()
+                                                  .Where(x => keepCard.AffectedSticker != x.stickerAsset.color || keepCard.AffectedSticker != x.stickerAsset.shape)
+                                                  .ToList();
+
         //Remove
         DraggableSticker stickerToRemove = stickersToChange
-                                                .Where(sticker => 
-                                                        sticker.stickerAsset.color == loseCard.AffectedSticker || 
+                                                .Where(sticker =>
+                                                        sticker.stickerAsset.color == loseCard.AffectedSticker ||
                                                         sticker.stickerAsset.shape == loseCard.AffectedSticker)
                                                 .FirstOrDefault();
         if (stickerToRemove != null)
@@ -136,14 +147,20 @@ public class PromptManager : MonoBehaviour
         }
 
         //Move 
-        DraggableSticker stickerToMove = stickersToChange
+        List<DraggableSticker> stickersToMove = stickersToChange
                                                 .Where(sticker =>
                                                         sticker.stickerAsset.color == moveCard.AffectedSticker ||
                                                         sticker.stickerAsset.shape == moveCard.AffectedSticker)
-                                                .FirstOrDefault();
+                                                .ToList();
 
-        if (stickerToMove != null)
-            stickerToMove.gameObject.transform.localPosition = Vector3.zero;
+        if (stickersToMove.Count > 0)
+        {
+            for (int i = 0; i < stickersToMove.Count; i++)
+            {
+                DraggableSticker stickerToMove = stickersToMove[i];
+                stickerToMove.gameObject.transform.localPosition = Vector3.zero + Vector3.one * (0.1f * i);
+            }
+        }
 
         //Add Move
         //Find a sticker position from available stickers
@@ -156,12 +173,13 @@ public class PromptManager : MonoBehaviour
             GameObject sticker = Instantiate(pGameState.StickerPrefab, pCard.transform);
             Sprite loadStickerSprite = Resources
                                             .LoadAll<StickerAsset>("StickerAssets")
-                                            .Where(asset => 
-                                                asset.color == addCard.AffectedSticker|| 
+                                            .Where(asset =>
+                                                asset.color == addCard.AffectedSticker ||
                                                 asset.shape == addCard.AffectedSticker)
                                             .First().stickerSprite;
 
             sticker.GetComponent<Image>().sprite = loadStickerSprite;
+            sticker.transform.position = new Vector3(0.5f, 0.2f);
         }
     }
 

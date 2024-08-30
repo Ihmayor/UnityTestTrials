@@ -411,12 +411,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeckBack: {fileID: 21300000, guid: 9158d7f30984145429b4cc87c3381542, type: 3}
   CardPromptSprites:
-  - {fileID: 21300000, guid: df2ec2779efc00241a79cecae3111f71, type: 3}
-  - {fileID: 21300000, guid: d8a977fea291fee4a864ffa7bd6c0032, type: 3}
-  - {fileID: 21300000, guid: 32fd60a8c72396243ac532ad560507d6, type: 3}
-  - {fileID: 21300000, guid: dd1dc3f1a9f3a964daf3559ee3411fac, type: 3}
-  - {fileID: 21300000, guid: 721cbee3671fefc459fec1dce7d6bf1f, type: 3}
-  - {fileID: 21300000, guid: f5bda632a69845743a3aa42d514508e9, type: 3}
+  - {fileID: 11400000, guid: 4a2d1638ac7e26242b1b459206ed3dc2, type: 2}
+  - {fileID: 11400000, guid: a277d5b7557e9d24980401bfb78a5b96, type: 2}
+  - {fileID: 11400000, guid: 928bb2d18a728d34db92d2607aeb04f3, type: 2}
+  - {fileID: 11400000, guid: fdef6c12b7d774544b2316d5a09d099e, type: 2}
+  - {fileID: 11400000, guid: c5968f24d959f0442973fd222bb9fb17, type: 2}
+  - {fileID: 11400000, guid: 2423dc3e877b98e47b55d48d983b4da1, type: 2}
 --- !u!1 &92613649
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &177158124
 GameObject:
@@ -669,6 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &216640821
 GameObject:
@@ -978,6 +982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &288335447
 GameObject:
@@ -1067,6 +1073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &302605825
 GameObject:
@@ -1156,6 +1164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &317054022
 GameObject:
@@ -1772,6 +1782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &494774232
 GameObject:
@@ -2076,6 +2088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &559827886
 GameObject:
@@ -2165,6 +2179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &589260752
 GameObject:
@@ -2256,7 +2272,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1315405782}
+        m_TargetAssemblyTypeName: CardDeckUI, Assembly-CSharp
+        m_MethodName: CloseCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1899305170}
+        m_TargetAssemblyTypeName: CardDeckUI, Assembly-CSharp
+        m_MethodName: CloseCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 65377046}
+        m_TargetAssemblyTypeName: CardDeckUI, Assembly-CSharp
+        m_MethodName: CloseCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1734834877}
+        m_TargetAssemblyTypeName: CardDeckUI, Assembly-CSharp
+        m_MethodName: CloseCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2055622781}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1364917644}
+        m_TargetAssemblyTypeName: CalloutScreenUI, Assembly-CSharp
+        m_MethodName: GetSelectedGuesses
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &640275522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,6 +2713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &792291634
 GameObject:
@@ -3054,6 +3144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &823013457
 GameObject:
@@ -3143,6 +3235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &829192702
 GameObject:
@@ -3439,6 +3533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &909135894
 GameObject:
@@ -3999,6 +4095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1181239018
 GameObject:
@@ -4324,6 +4422,30 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1364917642}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1904826612}
+        m_TargetAssemblyTypeName: OpponentUI, Assembly-CSharp
+        m_MethodName: ApplyGeneratedPrompts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1904826607}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4845,12 +4967,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeckBack: {fileID: 21300000, guid: a3a565978becc3442979aafa9a2c529f, type: 3}
   CardPromptSprites:
-  - {fileID: 21300000, guid: 26f8372c43596ad448d30da3ce107168, type: 3}
-  - {fileID: 21300000, guid: bb9c270d4083c2d47802ab3a7174ef26, type: 3}
-  - {fileID: 21300000, guid: b7f3745d914ecd845899ce8b8254c121, type: 3}
-  - {fileID: 21300000, guid: ca773d0cb5ddb8d4289df53cb483868d, type: 3}
-  - {fileID: 21300000, guid: d25b83051f034cd4cbac1d35732db49e, type: 3}
-  - {fileID: 21300000, guid: 57c9988f68fef3b4d82084e0dd1d10f6, type: 3}
+  - {fileID: 11400000, guid: 6ec7e02e000d998478ac8829f85a1e03, type: 2}
+  - {fileID: 11400000, guid: 3ca7f0cbeda01204d86a1d6f4117e0ba, type: 2}
+  - {fileID: 11400000, guid: ddfa89d40d96458448bc1c903c52428f, type: 2}
+  - {fileID: 11400000, guid: 23404105629f26640adb4730042421c3, type: 2}
+  - {fileID: 11400000, guid: 9c5c83eddc0debe42906c381a38af931, type: 2}
+  - {fileID: 11400000, guid: 1d9f8da2bf39ed54a87f34f65b986595, type: 2}
 --- !u!1 &1364917642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,6 +5019,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d00c6e45cdc964c9285d71dbb0447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeepDeck: {fileID: 1315405782}
+  LoseDeck: {fileID: 1899305170}
+  AddDeck: {fileID: 65377046}
+  MoveDeck: {fileID: 1734834877}
+  Guess: {fileID: 11400000, guid: 7de399ed794275f4fa914e37c57d1d34, type: 2}
+  OnCalloutSent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1386027297
 GameObject:
   m_ObjectHideFlags: 0
@@ -4985,6 +5115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1408205992
 GameObject:
@@ -5176,6 +5308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1492431855
 GameObject:
@@ -5265,6 +5399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1505918615
 GameObject:
@@ -5354,6 +5490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1590678383
 GameObject:
@@ -5588,6 +5726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1719547380
 GameObject:
@@ -5677,6 +5817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1721299544 stripped
 GameObject:
@@ -5752,12 +5894,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeckBack: {fileID: 21300000, guid: 868764fc8c42cbd4c97f541f19b9e911, type: 3}
   CardPromptSprites:
-  - {fileID: 21300000, guid: 8ad348f4e8a963647b05884fb79ff704, type: 3}
-  - {fileID: 21300000, guid: 584079cf5b57a6f4ba8c1547f4076c5c, type: 3}
-  - {fileID: 21300000, guid: 41c25f5e4a1bcc54d9cfb07eeb5e873d, type: 3}
-  - {fileID: 21300000, guid: cef312f6416447d4d9c8de03ae3c55e2, type: 3}
-  - {fileID: 21300000, guid: 027ef105a0fd45e47853e9128dcdac7f, type: 3}
-  - {fileID: 21300000, guid: e99923526e971da4d8837e1c8437e5cd, type: 3}
+  - {fileID: 11400000, guid: 8d348167301f8ca48b733414bc0ff531, type: 2}
+  - {fileID: 11400000, guid: a52e019b2da5a00438e8cf5bf87a1edd, type: 2}
+  - {fileID: 11400000, guid: 2af51b377f405bd4886dbdc906f9afe9, type: 2}
+  - {fileID: 11400000, guid: dc9ceff2de5bdb84cac87166f840ce04, type: 2}
+  - {fileID: 11400000, guid: accb8fc7e38210e40acd4f229555179a, type: 2}
+  - {fileID: 11400000, guid: fcefab8dd6246ef4cad65957c57e7b12, type: 2}
 --- !u!1 &1794505081
 GameObject:
   m_ObjectHideFlags: 0
@@ -5982,12 +6124,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeckBack: {fileID: 21300000, guid: 7a12ba6f6afbfe14b8a8aaf14d1719e5, type: 3}
   CardPromptSprites:
-  - {fileID: 21300000, guid: bfd576ecc2f21794981575b4bdbcf0b9, type: 3}
-  - {fileID: 21300000, guid: 6d219b6210c9a3a429f1316c3a03d8f0, type: 3}
-  - {fileID: 21300000, guid: 6b448e23c6c8c9048b802b26b851f38a, type: 3}
-  - {fileID: 21300000, guid: 4b6ad71b9eac4934e82d25c85b87d4f4, type: 3}
-  - {fileID: 21300000, guid: 9fa7770561084d24bb1688c38c7a6859, type: 3}
-  - {fileID: 21300000, guid: fb8b8f8e322200841b9f2a7c42169b0d, type: 3}
+  - {fileID: 11400000, guid: 03d2e62b29617a94aa038db5dabc90cb, type: 2}
+  - {fileID: 11400000, guid: 140c3f5af6f851142bfce76633c12348, type: 2}
+  - {fileID: 11400000, guid: 800da36c5a92e2c458cfa90d4d3608a4, type: 2}
+  - {fileID: 11400000, guid: bc4da9c0abfbf8f4ab93f4f9949bee34, type: 2}
+  - {fileID: 11400000, guid: b590e09133d5acb4d8f532958af533e7, type: 2}
+  - {fileID: 11400000, guid: b3f884dc17f6a94468260561c6501d08, type: 2}
 --- !u!1 &1904826607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6198,6 +6340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &1964428513
 GameObject:
@@ -6287,6 +6431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &2000625697
 GameObject:
@@ -6376,6 +6522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &2013286128
 GameObject:
@@ -6451,6 +6599,164 @@ RectTransform:
   m_AnchoredPosition: {x: -211, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2055622780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 361974163561336445, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 724404091418381651, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025054885226720077, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: GuessState
+      value: 
+      objectReference: {fileID: 11400000, guid: 7de399ed794275f4fa914e37c57d1d34, type: 2}
+    - target: {fileID: 2025054885226720077, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: AddNoGuessSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d20c702f221d54c40b463621717c802a, type: 3}
+    - target: {fileID: 2025054885226720077, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: KeepNoGuessSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 630059cbb2aab854b80653f10d4490da, type: 3}
+    - target: {fileID: 2025054885226720077, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: LoseNoGuessSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfc7275476860bf4eaa368851b0468c8, type: 3}
+    - target: {fileID: 2025054885226720077, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: MoveNoGuessSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d58fb36420e2d4747b4ccf460fbdc3f0, type: 3}
+    - target: {fileID: 2107000691544507313, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662665784688943033, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_Name
+      value: CompareUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662665784688943033, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957660562525593658, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751393546628020118, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215742377381461857, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692934790414426755, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796475753029816930, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: _hoverDistance
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829247120195477725, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+--- !u!1 &2055622781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3662665784688943033, guid: e15ed78dcac891c44aeeb3025d96c0f8, type: 3}
+  m_PrefabInstance: {fileID: 2055622780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2084699438
 GameObject:
   m_ObjectHideFlags: 0
@@ -6671,6 +6977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1 &2095015014
 GameObject:
@@ -6760,6 +7068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108c75479b8cc64eb82638ddf6edf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _front: {fileID: 0}
+  _back: {fileID: 0}
   FlipSpeed: 0.5
 --- !u!1001 &359148754310995580
 PrefabInstance:
@@ -7367,3 +7677,4 @@ SceneRoots:
   - {fileID: 1295481315}
   - {fileID: 1364917643}
   - {fileID: 3352465650133947640}
+  - {fileID: 2055622780}

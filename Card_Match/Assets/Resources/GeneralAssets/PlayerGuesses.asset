@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7da147706a26347936f4c94395f57a, type: 3}
+  m_Name: PlayerGuesses
+  m_EditorClassIdentifier: 
+  Keep: {fileID: 0}
+  Lose: {fileID: 0}
+  Add: {fileID: 0}
+  Move: {fileID: 0}
+  OpponentKeep: {fileID: 0}
+  OpponentLose: {fileID: 0}
+  OpponentAdd: {fileID: 0}
+  OpponentMove: {fileID: 0}

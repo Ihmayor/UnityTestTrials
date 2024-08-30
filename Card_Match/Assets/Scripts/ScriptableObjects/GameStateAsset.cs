@@ -11,17 +11,23 @@ public class GameStateAsset : ScriptableObject
     public bool IsWin;
     
     public int NumOfDecoratedCards;
+
     public List<Sprite> CardBackingSprites = new List<Sprite>(3);
 
     public List<PromptAsset> AllPromptAssets = new List<PromptAsset>(24);
+
+    public GameObject CardPrefab;
+    public GameObject StickerPrefab;
 
     public PromptAsset Keep;
     public PromptAsset Lose;
     public PromptAsset Add;
     public PromptAsset Move;
 
-    public GameObject CardPrefab;
-    public GameObject StickerPrefab;
+    public PromptAsset OpponentKeep;
+    public PromptAsset OpponentLose;
+    public PromptAsset OpponentAdd;
+    public PromptAsset OpponentMove;
 
     public enum Phase{
         Decorate,

@@ -164,13 +164,21 @@ public class HandManager : MonoBehaviour
     {
         if (CardsScrambled.Where(x => x.GetComponent<SpriteRenderer>().color == Color.red).Count() > 0)
             return;
+
         foreach(GameObject card in CardsScrambled)
         {
-            LeanTween.moveLocalY(card, card.transform.position.y + 10, 2f).setEaseOutQuart();
+            LeanTween.moveLocalY(card, card.transform.position.y + 10, 2f)
+                .setEaseOutQuart()
+                .setOnComplete(() => 
+                    {
+                        if (_gameState.phase == GameStateAsset.Phase.Scramble)
+                        {
+                            _gameState.NextGamePhase();
+                            _onCalloutPhase.Invoke();
+                        }
+                    }
+                );
         }
-
-        _gameState.NextGamePhase();
-        _onCalloutPhase.Invoke();
     }
 
     IEnumerator MemorizePhase(float delayInSeconds, float phaseDurationInSeconds)
@@ -190,6 +198,12 @@ public class HandManager : MonoBehaviour
         _gameState.NextGamePhase();
         yield return null;
     }
+
+    public void ComparePhase()
+    {
+        _gameState.NextGamePhase();
+    }
+
 
     private void OnApplicationQuit()
     {

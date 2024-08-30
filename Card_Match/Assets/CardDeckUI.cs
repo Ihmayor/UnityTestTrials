@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class CardDeckUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Sprite DeckBack;
-    public List<Sprite> CardPromptSprites;
+    public List<PromptAsset> CardPromptSprites;
 
     bool _isOpen;
 
@@ -62,17 +62,13 @@ public class CardDeckUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         for (int i = 0; i < calloutCards.Length; i++)
         {
             CalloutCardUI card = calloutCards[i];
-            card.SetCardSprites(CardPromptSprites[i], DeckBack);
+            card.SetCardSprites(CardPromptSprites[i].PromptSprite, DeckBack);
             card.enabled = false;
             card.gameObject.transform.position = _firstCardPosition;
         }
     }
-
-
-
-    // Update is called once per frame
-    void Update()
+    public CalloutCardUI GetTopCard()
     {
-        
+        return GetComponentsInChildren<CalloutCardUI>().Last();
     }
 }
