@@ -4,27 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public class HandManager : MonoBehaviour
 {
+    [SerializeField]
+    private UnityEvent _onMemorizePhaseStart;
 
     [SerializeField]
     private UnityEvent _onMemorizePhaseEnter;
 
+    
     [SerializeField]
     private UnityEvent _onScramblePhaseEnter;
 
     [SerializeField]
     private UnityEvent _onScramblePhaseStay;
 
+    [SerializeField]
+    private UnityEvent _onCalloutPhase;
+
     private GameObject _currentCard;
 
     [SerializeField]
     GameStateAsset _gameState;
-
-    [SerializeField]
-    float MemorizePhaseDuration = 10f;
 
     private static readonly int TOTAL_CARDS_TO_DECORATE = 3;
 
@@ -36,15 +41,31 @@ public class HandManager : MonoBehaviour
 
     private static List<GameObject> CardsSubmitted;
 
-
-
     private bool _isScrambling = false;
     private bool _isMemorizing = false;
+
+    private static List<GameObject> CardsScrambled;
 
     public void Start()
     {
         CardsSubmitted = new List<GameObject>();
         _currentCard = Instantiate(_gameState.CardPrefab);
+    }
+
+    void Update()
+    {
+        if (_gameState.NumOfDecoratedCards == 3 && _gameState.phase == GameStateAsset.Phase.Decorate && !_isMemorizing)
+        {
+            _isMemorizing = true;
+            StartCoroutine(MemorizePhase(1f, _gameState.MemorizePhaseDuration));
+        }
+
+        if (_gameState.phase == GameStateAsset.Phase.Scramble && !_isScrambling)
+        {
+            _isScrambling = true;
+            _onScramblePhaseEnter.Invoke();
+        }
+
     }
 
     public void AddCard()
@@ -93,6 +114,12 @@ public class HandManager : MonoBehaviour
      
     public void SubmittedSelectedCards()
     {
+        if (SelectedCardsUI.Count < 2)
+        {
+            //Invalid Card Submission
+            return;
+        }
+
         List<string> selectedPositions = SelectedCardsUI.Select(x => x.GetComponent<CardController>().ConvertedUIPositionName).ToList();
         List<GameObject> selectedCards = CardsSubmitted.Where(x => selectedPositions.Contains(x.GetComponent<CardController>().ConvertedUIPositionName)).ToList();
 
@@ -103,6 +130,19 @@ public class HandManager : MonoBehaviour
         GameObject firstCard = selectedCards[0];
         GameObject secondCard = selectedCards[1];
 
+        //Apply Prompt Limits
+        PromptManager.ApplyPromptLimits(firstCard, _gameState.Keep, _gameState.Move, _gameState.Lose, _gameState.Add);
+        PromptManager.ApplyPromptLimits(secondCard, _gameState.Keep, _gameState.Move, _gameState.Lose, _gameState.Add);
+
+        //Add Self-Validator
+        CardPromptValidator firstCardPromptValidator = firstCard.AddComponent<CardPromptValidator>();
+        firstCardPromptValidator.SetupCardValidation(Instantiate(firstCard), _gameState);
+        
+        CardPromptValidator secondCardPromptValidator = secondCard.AddComponent<CardPromptValidator>();
+        secondCardPromptValidator.SetupCardValidation(Instantiate(secondCard), _gameState);
+
+
+        //Animate Cards onto screen
         firstCard.SetActive(true);
         LeanTween
             .moveLocalX(firstCard, firstCard.transform.position.x - 3, 2f)
@@ -115,40 +155,34 @@ public class HandManager : MonoBehaviour
                 .setEaseOutQuart()
                 .setOnComplete(() => 
                 { 
-                    ScramblePhase(new List<GameObject>() { firstCard, secondCard }); 
+                    CardsScrambled = new List<GameObject>() { firstCard, secondCard };
                 });
             });
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CalloutPhase()
     {
-        if (_gameState.NumOfDecoratedCards == 3 && _gameState.phase == GameStateAsset.Phase.Decorate && !_isMemorizing)
+        if (CardsScrambled.Where(x => x.GetComponent<SpriteRenderer>().color == Color.red).Count() > 0)
+            return;
+        foreach(GameObject card in CardsScrambled)
         {
-            _isMemorizing = true;
-            StartCoroutine(MemorizePhase(5f, MemorizePhaseDuration));
+            LeanTween.moveLocalY(card, card.transform.position.y + 10, 2f).setEaseOutQuart();
         }
 
-        if (_gameState.phase == GameStateAsset.Phase.Scramble && !_isScrambling)
-        {
-            _isScrambling = true;
-            _onScramblePhaseEnter.Invoke();
-        }
-
+        _gameState.NextGamePhase();
+        _onCalloutPhase.Invoke();
     }
-
-    void ScramblePhase(List<GameObject> cardsToScramble)
-    {
-
-    }
-
 
     IEnumerator MemorizePhase(float delayInSeconds, float phaseDurationInSeconds)
     {
-        yield return new WaitForSeconds(delayInSeconds);
-        _gameState.phase = GameStateAsset.Phase.Memorize;
-        _onMemorizePhaseEnter.Invoke();
 
+        _gameState.phase = GameStateAsset.Phase.Memorize;
+        _onMemorizePhaseStart.Invoke();
+
+        PlayableDirector director = GetComponent<PlayableDirector>();
+        director.Play();
+        yield return new WaitForSeconds((float)director.duration - 1.2f);
+        _onMemorizePhaseEnter.Invoke();
         //Load Cards
         yield return new WaitForSeconds(phaseDurationInSeconds);
 

@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MemorizeUI : MonoBehaviour
 {
     [SerializeField]
     GameStateAsset _gameState;
+    public Image progressBar;
+
+    float timePassed;
 
     private void FixedUpdate()
     {
@@ -15,5 +19,14 @@ public class MemorizeUI : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        timePassed += Time.deltaTime;
+        progressBar.fillAmount = 1 - (timePassed / _gameState.MemorizePhaseDuration);
     }
+
+    private void Awake()
+    {
+        timePassed = 0;
+    }
+
 }

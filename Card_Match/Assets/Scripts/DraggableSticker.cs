@@ -13,11 +13,8 @@ public class DraggableSticker : MonoBehaviour
 
     private Vector3 _originalPosition;
 
-    private float _startX;
-    private float _startY;
-    private bool _isBeingHeld;
-
-    private bool _isFromSheet;
+    private float _startX, _startY;
+    private bool _isBeingHeld, _isFromSheet;
 
     public void Awake()
     {

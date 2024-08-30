@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Custom/GameState")]
 public class GameStateAsset : ScriptableObject
 {
-
+    public float MemorizePhaseDuration = 10f;
     public Phase phase;
     public bool IsWin;
     
@@ -21,6 +21,7 @@ public class GameStateAsset : ScriptableObject
     public PromptAsset Move;
 
     public GameObject CardPrefab;
+    public GameObject StickerPrefab;
 
     public enum Phase{
         Decorate,
