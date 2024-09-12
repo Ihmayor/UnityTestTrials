@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Coal
+  m_Shader: {fileID: -6465566751694194690, guid: ff95ede2830527d4693fa67ba7c5a996, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _ColorSwitch: 0
+    - _Frequency: 2
+    - _IsGlow: 1
+    - _Metallic: 11.24
+    - _Smoothness: 0
+    m_Colors:
+    - _BaseColor: {r: 0.005524271, g: 0.000752335, b: 0, a: 1}
+    - _BottomColor: {r: 1, g: 0.2303665, b: 0, a: 0}
+    - _GlowColor: {r: 0.30028346, g: 0.05193264, b: 0.0042492864, a: 0}
+    - _IntenseOverrideColor: {r: 1, g: 0.13482334, b: 0, a: 1}
+    - _MaxGlowColor: {r: 2.3773584, g: 0.29287776, b: 0, a: 0}
+    - _MinGlowColor: {r: 0.072686076, g: 0.007723253, b: 0, a: 0}
+    - _TopColor: {r: 0.012971699, g: 0.0024442128, b: 0.00042831106, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &2451994703292454626
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0

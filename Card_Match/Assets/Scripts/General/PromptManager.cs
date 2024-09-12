@@ -106,6 +106,8 @@ public class PromptManager : MonoBehaviour
         {
             if (pLose.AffectedSticker == pMove.AffectedSticker)
                 return true;
+            if (moveableStickers.Length == 1 && moveableStickers[0].Item1.Contains(pLose.AffectedSticker.ToSafeString()))
+                return true;
             return false;
         }
 
@@ -186,7 +188,6 @@ public class PromptManager : MonoBehaviour
                                                 asset.color == addCard.AffectedSticker ||
                                                 asset.shape == addCard.AffectedSticker)
                                             .First().stickerSprite;
-
             sticker.GetComponent<Image>().sprite = loadStickerSprite;
             sticker.transform.localPosition = new Vector3(30f, 50f);
         }

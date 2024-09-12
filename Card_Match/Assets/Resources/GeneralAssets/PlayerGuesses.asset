@@ -16,7 +16,7 @@ MonoBehaviour:
   Lose: {fileID: 0}
   Add: {fileID: 0}
   Move: {fileID: 0}
-  OpponentKeep: {fileID: 0}
-  OpponentLose: {fileID: 0}
-  OpponentAdd: {fileID: 0}
-  OpponentMove: {fileID: 0}
+  OpponentKeep: {fileID: 11400000, guid: 3ca7f0cbeda01204d86a1d6f4117e0ba, type: 2}
+  OpponentLose: {fileID: 11400000, guid: accb8fc7e38210e40acd4f229555179a, type: 2}
+  OpponentAdd: {fileID: 11400000, guid: a277d5b7557e9d24980401bfb78a5b96, type: 2}
+  OpponentMove: {fileID: 11400000, guid: b590e09133d5acb4d8f532958af533e7, type: 2}

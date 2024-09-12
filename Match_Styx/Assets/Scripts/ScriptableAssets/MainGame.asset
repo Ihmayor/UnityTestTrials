@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d2ceb8f28d55543b430eaa1ec49411, type: 3}
+  m_Name: MainGame
+  m_EditorClassIdentifier: 
+  DaysPassed: 0
+  OnWarmZoneLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWarmZoneEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWarmZoneExpanded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameLoss:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDayPassed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWritingComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  PaperDialogue:
+  - "It's great to see you've started to venture out again. \nWe know it's been hard
+    leaving camp lately. \n\n Do try to find us, head east. Good luck."
+  - "I know it's freezing out there but you've got the tools to survive, I believe
+    in you. Breathe.\n\n Don't forget to 'E' for warmth, if you've got the reserves
+    for it."
+  - Look, you can't give up. You just can't.
+  - "It's okay to take breaks but you can't sleep forever. \n\nFind us."
+  - I promise you that there's a greater world out there, waiting for you. You just
+    have to keep trying, keep working at it.
+  - I know you want to just sleep the days away until it's long gone. I know you
+    don't want to move anymore. I don't what to say to you anymore.
+  - Do you really want someone ELSE to dictate the narrative? If you know that they'll
+    never understand you in life, what more in your death?
+  - 'I promise it''s not all snow out here. I promise. '
+  - Keep going.
+  JournalPage:
+  - 'Dear Journal,
+
+
+    I hope that I won''t write in you too much. Otherwise, that
+    would mean I barely tried to leave.'
+  - 'Dear Journal,
+
+
+    I feel a sense of urgency beckoning me, but it''s a pull
+    that''s vague enough to ignore, like a banshee but muffled to a whisper. I''m
+    aware of her screams but the warm fire can easily drown her out.'
+  - 'Dear Journal,
+
+
+    I''m thinking about giving up. I know I shouldn''t but I
+    can''t help it.'
+  - 'Dear Journal,
+
+
+    I think they''re lying to me. I think they want me to believe
+    that there''s something out there, out east, but I hardly see the point in venturing
+    so far. '
+  - 'Dear Journal,
+
+
+    Looks like I have failed. I said I wouldn''t rely on you
+    too much but here I am. On the fourth day.'
+  - 'Dear Journal,
+
+
+    I''m telling myself it''s recuperation. I know that''s a
+    lie.'
+  - 'Dear Journal,
+
+
+    What am I even doing out here? Isn''t it all pointless anyways?'
+  - 'Dear Journal,
+
+
+    I suppose if I truly wanted to give up, I wouldn''t keep
+    trying to venture out even if instigating the action is like pullling teeth.'
+  - 'Dear Journal,
+
+
+    I have a plan. I finally have a plan.'
+  - 'Dear Journal,
+
+
+    I can feel the calm settle over me. It''ll be over soon.'
+  - "Dear Journal,\n\nThank you for being here...before I go. It's ok. You'll be
+    fine. \n\nGoodbye."

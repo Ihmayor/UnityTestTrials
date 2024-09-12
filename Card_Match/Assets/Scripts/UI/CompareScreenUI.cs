@@ -55,12 +55,18 @@ public class CompareScreenUI : MonoBehaviour
             return;
         }
 
-        int cardsEvaluated = new CompareCardUI[4] { playerAdd, playerMove, playerKeep, playerLose }.Where(card => card.IsEvaluated || card.IsFlipped).Count();
+        int cardsEvaluated = new CompareCardUI[4] { playerAdd, playerMove, playerKeep, playerLose }.Where(card => card.IsEvaluated).Count();
         if (cardsEvaluated == 4)
         {
             MainGame.GameEnd = true;
-            int playerTotal = winPlayer.transform.childCount;
-            int opponentTotal = winOpponent.transform.childCount;
+            int playerTotal = winPlayer.transform
+                                       .GetComponentsInChildren<CompareCardUI>()
+                                       .Where(card => !card.GetCardFront().name.Contains("_No_"))
+                                       .Count();
+            int opponentTotal = winOpponent.transform
+                                           .GetComponentsInChildren<CompareCardUI>()
+                                           .Where(card => !card.GetCardFront().name.Contains("_No_"))
+                                           .Count();
             if (playerTotal!= 0 && playerTotal >= opponentTotal)
                 MainGame.IsWin = true;
             else
@@ -78,7 +84,7 @@ public class CompareScreenUI : MonoBehaviour
         PromptAsset[] actualPlayerPrompt   = new PromptAsset[4] { MainGame.Add,         MainGame.Move,         MainGame.Keep,         MainGame.Lose };
         PromptAsset[] actualOpponentPrompt = new PromptAsset[4] { MainGame.OpponentAdd, MainGame.OpponentMove, MainGame.OpponentKeep, MainGame.OpponentLose };
 
-        PromptAsset[] guessPlayerPrompt   = new PromptAsset[4] { GuessState.Add,         GuessState.Move,         GuessState.Keep,         GuessState.Lose };
+        PromptAsset[] guessPlayerPrompt   = new PromptAsset[4] { GuessState.Add,         GuessState.Move,    GuessState.Keep,         GuessState.Lose };
         PromptAsset[] guessOpponentPrompt = new PromptAsset[4] { GuessState.OpponentAdd, GuessState.OpponentMove, GuessState.OpponentKeep, GuessState.OpponentLose };
 
         for (int i = 0; i < 4; i++)

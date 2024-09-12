@@ -23,23 +23,39 @@ public class CalloutScreenUI : MonoBehaviour
 
     public void GetSelectedGuesses()
     {
+        KeepDeck.CloseCards();
+        AddDeck.CloseCards();
+        LoseDeck.CloseCards();
+        MoveDeck.CloseCards();
+
+        StartCoroutine(CloseDecksDelay(1.5f));
+    }
+
+    IEnumerator CloseDecksDelay(float delayInSeconds)
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+
+
         CalloutCardUI selectedKeep = KeepDeck.GetTopCard();
         CalloutCardUI selectedLose = LoseDeck.GetTopCard();
-        CalloutCardUI selectedAdd  = AddDeck .GetTopCard();
+        CalloutCardUI selectedAdd = AddDeck.GetTopCard();
         CalloutCardUI selectedMove = MoveDeck.GetTopCard();
 
         Guess.Keep = selectedKeep.IsFlipped ? GetPromptAsset(selectedKeep.GetSprite()) : null;
         Guess.Lose = selectedLose.IsFlipped ? GetPromptAsset(selectedLose.GetSprite()) : null;
-        Guess.Add  = selectedAdd.IsFlipped  ? GetPromptAsset(selectedAdd.GetSprite())   : null;
-        Guess.Move = selectedMove.IsFlipped ? GetPromptAsset(selectedMove.GetSprite())  : null;
+        Guess.Add = selectedAdd.IsFlipped ? GetPromptAsset(selectedAdd.GetSprite()) : null;
+        Guess.Move = selectedMove.IsFlipped ? GetPromptAsset(selectedMove.GetSprite()) : null;
 
         Guess.OpponentKeep = GetRandomPrompt(PromptAsset.Type.Keep);
         Guess.OpponentLose = GetRandomPrompt(PromptAsset.Type.Lose);
-        Guess.OpponentAdd  = GetRandomPrompt(PromptAsset.Type.Add);
+        Guess.OpponentAdd = GetRandomPrompt(PromptAsset.Type.Add);
         Guess.OpponentMove = GetRandomPrompt(PromptAsset.Type.Move);
 
+
         OnCalloutSent.Invoke();
+        gameObject.SetActive(false);
     }
+
 
     PromptAsset GetPromptAsset(Sprite pSprite)
     {

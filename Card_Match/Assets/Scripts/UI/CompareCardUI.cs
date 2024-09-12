@@ -26,7 +26,7 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     GameObject winOpponent;
 
     [SerializeField]
-    GameObject winPlayer;
+    GameObject winSelf;
 
     public CompareCardUI PairedCard;
     Image _imageOnCard;
@@ -42,15 +42,52 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         _originalPosition = transform.position;        
     }
 
+    void Update()
+    {
+        if (IsFlipped && 
+            (gameObject.transform.parent == winOpponent.transform ||
+            gameObject.transform.parent == winSelf.transform ||
+            gameObject.transform.rotation.eulerAngles.z > 70))
+        {
+            IsEvaluated = true;
+        }
+    }
+   
+    public void SetupCard(Sprite pFront, bool pIsWin)
+    {
+        _front = pFront;
+        IsWin = pIsWin;
+    }
+
+    public void PairCard(CompareCardUI setPair)
+    {
+        PairedCard = setPair;
+    }
+
+    public Sprite GetCardFront()
+    {
+        return _front;
+    }
+
+    public void FlipCardToFront()
+    {
+        if (LeanTween.isTweening(gameObject))
+            return;
+        IsFlipped = true;
+        LeanTween.rotateY(gameObject, 90, FlipSpeed / 2).setOnComplete(() =>
+        {
+            _imageOnCard.sprite = _front;
+            LeanTween.rotateY(gameObject, 0, FlipSpeed);
+        });
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (LeanTween.isTweening(gameObject) || IsFlipped)
             return;
-        IsFlipped = true;
-
         FlipCardToFront();
         PairedCard.FlipCardToFront();
-        
+
         float delayInSeconds = 1.4f;
 
         if (IsWin)
@@ -63,27 +100,6 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         }
     }
 
-    public void FlipCardToFront()
-    {
-        if (LeanTween.isTweening(gameObject))
-            return;
-        LeanTween.rotateY(gameObject, 90, FlipSpeed / 2).setOnComplete(() =>
-        {
-            _imageOnCard.sprite = _front;
-            LeanTween.rotateY(gameObject, 0, FlipSpeed);
-        });
-    }
-
-    public void SetupCard(Sprite pFront, bool pIsWin)
-    {
-        _front = pFront;
-        IsWin = pIsWin;
-    }
-
-    public void PairCard(CompareCardUI setPair)
-    {
-        PairedCard = setPair;
-    }
 
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -108,12 +124,12 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         }
         else
         {
-            LeanTween.moveLocal(gameObject, this.WinPosition, 0.3f).setOnComplete(() => { gameObject.transform.SetParent(winPlayer.transform); });
-            LeanTween.moveLocal(PairedCard.gameObject, this.WinPosition + new Vector2(0, _hoverDistance), 0.15f).setOnComplete(() => { PairedCard.gameObject.transform.SetParent(winPlayer.transform); }); ;
+            gameObject.transform.SetParent(winSelf.transform);
+            PairedCard.gameObject.transform.SetParent(winSelf.transform);
+            LeanTween.moveLocal(gameObject, this.WinPosition, 0.3f);
+            LeanTween.moveLocal(PairedCard.gameObject, this.WinPosition + new Vector2(0, _hoverDistance), 0.15f);
         }
-        yield return new WaitForSeconds(5f);
-        IsEvaluated = true;
-        yield return null;
+        yield return new WaitForSeconds(4f);
     }
 
     public void MovePairTowardsPile()
@@ -122,7 +138,6 @@ public class CompareCardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         LeanTween.moveLocal(PairedCard.gameObject, PilePosition + new Vector2(0, _hoverDistance), 0.15f);
         LeanTween.rotateZ(gameObject, 85, 0.4f);
         LeanTween.rotateZ(PairedCard.gameObject, 96, 0.4f);
-        IsEvaluated = true;
     }
 
 }

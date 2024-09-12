@@ -20,20 +20,27 @@ public class OpponentUI : MonoBehaviour
 
     public void Start()
     {
-        LoadUIHand(LeftHand, RightHand, MiddleHand);
-        _originalPosition = FullHand.transform.position;
     }
 
     public void Awake()
     {
+        if (_gameState.phase == GameStateAsset.Phase.Memorize)
+        {
+            LoadUIHand(LeftHand, RightHand, MiddleHand);
+            _originalPosition = FullHand.transform.position;
+        }
+
         LeanTween.moveX(FullHand, transform.position.x - 50, 0.7f);
     }
 
     void LoadUIHand(GameObject pLeft, GameObject pRight, GameObject pMiddle)
     {
-        _loadedLeftHand   = Instantiate(_opponentExample.leftPrefabs[0], pLeft.transform);
-        _loadedRightHand  = Instantiate(_opponentExample.rightPrefabs[0], pRight.transform);
-        _loadedMiddleHand = Instantiate(_opponentExample.middlePrefabs[0], pMiddle.transform);
+        int randomIndex = Random.Range(0, _opponentExample.leftPrefabs.Count);
+        _loadedLeftHand   = Instantiate(_opponentExample.leftPrefabs[randomIndex], pLeft.transform);
+        randomIndex = Random.Range(0, _opponentExample.leftPrefabs.Count);
+        _loadedRightHand = Instantiate(_opponentExample.rightPrefabs[randomIndex], pRight.transform);
+        randomIndex = Random.Range(0, _opponentExample.leftPrefabs.Count);
+        _loadedMiddleHand = Instantiate(_opponentExample.middlePrefabs[randomIndex], pMiddle.transform);
     }
 
     public void ApplyGeneratedPrompts()

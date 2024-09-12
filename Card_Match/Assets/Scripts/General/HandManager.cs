@@ -30,7 +30,7 @@ public class HandManager : MonoBehaviour
     [SerializeField]
     private UnityEvent _onGameEnd;
 
-    private GameObject _currentCard;
+    private GameObject _currentCard ;
 
     [SerializeField]
     GameStateAsset _gameState;
@@ -41,25 +41,20 @@ public class HandManager : MonoBehaviour
     List<RectTransform> CardUIPositions = new List<RectTransform>(TOTAL_CARDS_TO_DECORATE);
 
 
-    public static Queue<GameObject> SelectedCardsUI = new Queue<GameObject>(2);
+    public static Queue<GameObject> SelectedCardsUI;
 
-    private static List<GameObject> CardsSubmitted = new List<GameObject>();
+    private static List<GameObject> CardsSubmitted;
 
     private bool _isScrambling = false;
     private bool _isMemorizing = false;
 
     private static List<GameObject> CardsScrambled;
 
-    public void Start()
+    public void Awake()
     {
         _currentCard = Instantiate(_gameState.CardPrefab);
-        SceneManager.sceneLoaded += SceneLoad;
-    }
-
-    private void SceneLoad(Scene arg0, LoadSceneMode arg1)
-    {
-        SelectedCardsUI.Clear();
-        CardsSubmitted.Clear();
+        CardsSubmitted = new List<GameObject>();
+        SelectedCardsUI = new Queue<GameObject>(2);
     }
 
     void Update()
@@ -85,10 +80,11 @@ public class HandManager : MonoBehaviour
 
     public void AddCard()
     {
-        if (_currentCard == null || CardUIPositions.Count != TOTAL_CARDS_TO_DECORATE) {
+        if (CardUIPositions.Count != TOTAL_CARDS_TO_DECORATE) {
             return;
         }
 
+       
         if (_gameState.NumOfDecoratedCards >= CardUIPositions.Count)
             return;
 
@@ -98,10 +94,7 @@ public class HandManager : MonoBehaviour
             Debug.Log(cardUIPosition);
             Debug.Log(_gameState.NumOfDecoratedCards);
         }    
-        if (_currentCard == null)
-            _currentCard = Instantiate(_gameState.CardPrefab);
-        if (CardsSubmitted == null)
-            CardsSubmitted = new List<GameObject>();
+      
 
         GameObject worldSpaceCardClone =  _currentCard.GetComponent<CardController>().Convert(cardUIPosition);
         CardsSubmitted.Add(worldSpaceCardClone);
@@ -139,7 +132,7 @@ public class HandManager : MonoBehaviour
      
     public void SubmittedSelectedCards()
     {
-        if (SelectedCardsUI.Count < 2)
+        if (SelectedCardsUI.Count < 2 || CardsSubmitted.Count < 2)
         {
             //Invalid Card Submission
             return;
