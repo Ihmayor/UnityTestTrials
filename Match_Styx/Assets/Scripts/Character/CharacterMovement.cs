@@ -8,23 +8,32 @@ public class CharacterMovement : MonoBehaviour
     CharacterController controller;
     Animator animator;
     float speed;
-    bool isRespawning; 
-    public PlayerStats _playerStats;
+    bool isRespawning;
+
+    [SerializeField]
+    PlayerAsset _playerStats;
 
     void Awake()
     {
         speed = 20;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
         _playerStats.OnMatchLit.AddListener(BoostSpeed);
         _playerStats.OnDeath.AddListener(RespawnAtCamp);
+        _playerStats.OnPlayerFreeze.AddListener(FreezeSpeed);
+        _playerStats.OnPlayerThaw.AddListener(ThawSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_playerStats.IsDead) return;
-        if (!_playerStats.IsOutside) return;
+        if (_playerStats.IsDead     ||
+            !_playerStats.IsOutside ||
+            _playerStats.IsInteracting)
+        {
+            return;
+        }
 
         float hoz = Input.GetAxis("Horizontal");
         Vector3 movement = new Vector3(hoz / speed, 0);

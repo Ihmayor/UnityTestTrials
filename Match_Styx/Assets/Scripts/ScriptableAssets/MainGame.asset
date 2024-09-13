@@ -31,6 +31,15 @@ MonoBehaviour:
   OnWritingComplete:
     m_PersistentCalls:
       m_Calls: []
+  OnOpenPuzzle:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClosePuzzle:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPuzzleComplete:
+    m_PersistentCalls:
+      m_Calls: []
   PaperDialogue:
   - "It's great to see you've started to venture out again. \nWe know it's been hard
     leaving camp lately. \n\n Do try to find us, head east. Good luck."
@@ -99,3 +108,5 @@ MonoBehaviour:
     I can feel the calm settle over me. It''ll be over soon.'
   - "Dear Journal,\n\nThank you for being here...before I go. It's ok. You'll be
     fine. \n\nGoodbye."
+  PuzzleList:
+  - {fileID: 11400000, guid: a3602add9738fdf44887d2b637a851ed, type: 2}

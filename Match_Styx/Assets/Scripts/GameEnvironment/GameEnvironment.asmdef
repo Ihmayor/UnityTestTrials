@@ -1,0 +1,17 @@
+{
+    "name": "GameEnvironment",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cf7939d68103d5942a03ce86c19290f2",
+        "GUID:5e06e0f4580be2d45b7a36cb25ea3acd"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

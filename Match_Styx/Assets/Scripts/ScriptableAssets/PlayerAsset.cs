@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName ="Custom/PlayerStats")]
-public class PlayerStats : ScriptableObject
+[CreateAssetMenu(menuName ="Custom/PlayerAsset")]
+public class PlayerAsset : ScriptableObject
 {
     public bool IsFreezing;
     public bool IsMoving;
     public bool IsReading;
+    public bool IsInteracting;
     public bool IsDead;
     public bool IsOutside;
 
@@ -18,16 +19,22 @@ public class PlayerStats : ScriptableObject
 
     public readonly int LIMIT_OF_MATCHES = 5;
 
-    public int NumOfMatches { get; private set; }
+    public int NumOfMatches = 1;
+    public UnityEvent OnPlayerFreeze;
+    public UnityEvent OnPlayerThaw;
 
     public UnityEvent OnMatchLit;
     public UnityEvent OnDeath;
 
-    public void AddMatch()
+    public void AddMatch(int increaseFactor = 1)
     {
-        if (NumOfMatches + 1 < LIMIT_OF_MATCHES)
+        if (NumOfMatches + increaseFactor < LIMIT_OF_MATCHES)
         {
-            NumOfMatches += 1;
+            NumOfMatches += increaseFactor;
+        }
+        else
+        {
+            NumOfMatches = LIMIT_OF_MATCHES;
         }
     }
 
@@ -48,6 +55,7 @@ public class PlayerStats : ScriptableObject
         IsReading = false;
         IsFreezing = false;
         IsOutside = true;
+        IsInteracting = false;
 
         WarmthMeter = 1;
         NumOfMatches = 1;

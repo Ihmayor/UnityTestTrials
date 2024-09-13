@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class TentManager : MonoBehaviour
 {
-    public GameCycle _game;
-    public PlayerStats _player;
+    [SerializeField]
+    GameCycleAsset _game;
+
+    [SerializeField]
+    PlayerAsset _player;
 
     bool _isStaying;
 
@@ -14,16 +17,12 @@ public class TentManager : MonoBehaviour
         _isStaying = false;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.J) && 
             _isStaying)
         {
-            _isStaying = false;
-            _player.AddMatch();
-            _player.IsOutside = false;
-            _game.DaysPassed++;
-            _game.OnDayPassed.Invoke();
+            Sleep();
         }
     }
 
@@ -38,4 +37,15 @@ public class TentManager : MonoBehaviour
         _isStaying = false;
     }
 
+    void Sleep()
+    {
+        //Regain matches
+        _player.AddMatch();
+        //Time Passes
+        _game.PassDay();
+        //Player goes inside tent
+        _player.IsOutside = false;
+        //Avoid Spamming
+        _isStaying = false;
+    }
 }
