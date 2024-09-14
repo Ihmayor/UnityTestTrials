@@ -24,7 +24,7 @@ public class AmbienceController : MonoBehaviour
         if (_game != null)
         {
             _game.OnWarmZoneEnter.AddListener(SetWarm);
-            _game.OnWarmZoneLeft.AddListener(SetFreeze);
+            _game.OnWarmZoneExit.AddListener(SetFreeze);
         }
     }
 

@@ -11,7 +11,7 @@ public class GameCycleAsset : ScriptableObject
     public int DaysPassed;
     public readonly int DAYS_ALLOWABLE = 10;
 
-    public UnityEvent OnWarmZoneLeft;
+    public UnityEvent OnWarmZoneExit;
     public UnityEvent OnWarmZoneEnter;
     public UnityEvent OnWarmZoneExpanded;
 
@@ -71,7 +71,7 @@ public class GameCycleAsset : ScriptableObject
         _readIndex = 0;
         _journalIndex = 0;
         DaysPassed = 0;
-        OnWarmZoneLeft.RemoveAllListeners();
+        OnWarmZoneExit.RemoveAllListeners();
         OnWarmZoneEnter.RemoveAllListeners();
     }
 

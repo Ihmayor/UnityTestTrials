@@ -23,7 +23,7 @@ public class WarmZone : MonoBehaviour
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            _game.OnWarmZoneLeft.Invoke();
+            _game.OnWarmZoneExit.Invoke();
         }
     }
 

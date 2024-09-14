@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         _mainGame.OnWritingComplete.AddListener(PlayerLeavesTent);
         
         _mainGame.OnWarmZoneEnter.AddListener(ThawPlayer);
-        _mainGame.OnWarmZoneLeft .AddListener(FreezePlayer);
+        _mainGame.OnWarmZoneExit .AddListener(FreezePlayer);
     }
 
     private void StopPlayerInteraction()

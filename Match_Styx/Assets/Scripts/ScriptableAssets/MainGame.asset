@@ -78,7 +78,7 @@ MonoBehaviour:
 
     I think they''re lying to me. I think they want me to believe
     that there''s something out there, out east, but I hardly see the point in venturing
-    so far. '
+    so far.'
   - 'Dear Journal,
 
 
@@ -87,17 +87,7 @@ MonoBehaviour:
   - 'Dear Journal,
 
 
-    I''m telling myself it''s recuperation. I know that''s a
-    lie.'
-  - 'Dear Journal,
-
-
     What am I even doing out here? Isn''t it all pointless anyways?'
-  - 'Dear Journal,
-
-
-    I suppose if I truly wanted to give up, I wouldn''t keep
-    trying to venture out even if instigating the action is like pullling teeth.'
   - 'Dear Journal,
 
 
@@ -106,7 +96,13 @@ MonoBehaviour:
 
 
     I can feel the calm settle over me. It''ll be over soon.'
-  - "Dear Journal,\n\nThank you for being here...before I go. It's ok. You'll be
-    fine. \n\nGoodbye."
+  - 'Dear Journal,
+
+
+    Thank you for being here...before I go. It''s ok. You''ll
+    be fine.
+
+
+    Goodbye.'
   PuzzleList:
   - {fileID: 11400000, guid: a3602add9738fdf44887d2b637a851ed, type: 2}
