@@ -17,6 +17,7 @@ public class WarmZone : MonoBehaviour
     private void ExpandWarmZone()
     {
         GetComponent<BoxCollider>().size += new Vector3(40, 0, 0);
+        _game.OnWarmZoneEnter.Invoke();
     }
 
     private void OnTriggerExit(Collider other)

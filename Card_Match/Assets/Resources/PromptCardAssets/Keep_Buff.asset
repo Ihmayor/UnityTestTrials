@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 800da36c5a92e2c458cfa90d4d3608a4, type: 2}
   - {fileID: 11400000, guid: 2af51b377f405bd4886dbdc906f9afe9, type: 2}
   - {fileID: 11400000, guid: 928bb2d18a728d34db92d2607aeb04f3, type: 2}
-  PromptSprite: {fileID: 21300000, guid: ca773d0cb5ddb8d4289df53cb483868d, type: 3}
+  PromptSprite: {fileID: 21300000, guid: a50302a8878da214095436c30780897d, type: 3}
   PromptType: 3
   AffectedSticker: 5

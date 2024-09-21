@@ -189,7 +189,7 @@ public class HandManager : MonoBehaviour
 
         foreach(GameObject card in CardsScrambled)
         {
-            LeanTween.moveLocalY(card, card.transform.position.y + 10, 2f)
+            LeanTween.moveLocalY(card, card.transform.position.y + 40, 2f)
                 .setEaseOutQuart()
                 .setOnComplete(() => 
                     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrashCan : MonoBehaviour
 {
     [SerializeField]
-    float DistanceEnterDown = 10;
+    float DistanceEnterDown = 15;
 
 
     public void EnterStage()

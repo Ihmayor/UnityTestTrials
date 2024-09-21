@@ -188,6 +188,8 @@ public class PromptManager : MonoBehaviour
                                                 asset.color == addCard.AffectedSticker ||
                                                 asset.shape == addCard.AffectedSticker)
                                             .First().stickerSprite;
+            if (sticker.GetComponent<Image>() == null)
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
             sticker.GetComponent<Image>().sprite = loadStickerSprite;
             sticker.transform.localPosition = new Vector3(30f, 50f);
         }

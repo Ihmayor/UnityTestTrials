@@ -15,6 +15,6 @@ MonoBehaviour:
   IncompatiblePrompts:
   - {fileID: 11400000, guid: a52e019b2da5a00438e8cf5bf87a1edd, type: 2}
   - {fileID: 11400000, guid: 3ca7f0cbeda01204d86a1d6f4117e0ba, type: 2}
-  PromptSprite: {fileID: 21300000, guid: d8a977fea291fee4a864ffa7bd6c0032, type: 3}
+  PromptSprite: {fileID: 21300000, guid: 740e510efaef1fc42bc64d05a80f8fce, type: 3}
   PromptType: 1
   AffectedSticker: 1

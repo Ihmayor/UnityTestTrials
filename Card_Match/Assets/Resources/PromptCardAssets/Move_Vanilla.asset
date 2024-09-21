@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncompatiblePrompts:
   - {fileID: 11400000, guid: 1d9f8da2bf39ed54a87f34f65b986595, type: 2}
-  PromptSprite: {fileID: 21300000, guid: 9fa7770561084d24bb1688c38c7a6859, type: 3}
+  PromptSprite: {fileID: 21300000, guid: 2df10c230287ac84fb73a7caf63601dd, type: 3}
   PromptType: 0
   AffectedSticker: 4
