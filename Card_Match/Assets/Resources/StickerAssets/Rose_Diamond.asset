@@ -16,5 +16,5 @@ MonoBehaviour:
   shape: 0
   posX: 0
   posY: 0
-  scale: {x: 44, y: 85}
+  scale: 85
   stickerSprite: {fileID: 1564896990, guid: bbd468f28ebef1443ab3f357bfbfce96, type: 3}

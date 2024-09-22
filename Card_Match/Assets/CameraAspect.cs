@@ -17,10 +17,10 @@ public class CameraAspect : MonoBehaviour
         defaultWidth = 5.42f;
     }
     void Update()
-    {
+    {   
         if (IsMaintainWidth)
         {
-            Camera.main.orthographicSize = defaultWidth / Camera.main.aspect;
+            Camera.main.orthographicSize = defaultHeight / Camera.main.aspect;
             Camera.main.transform.position = new Vector3(CameraPos.x, adaptPosition * (defaultHeight - Camera.main.orthographicSize), CameraPos.z);
         }
         else

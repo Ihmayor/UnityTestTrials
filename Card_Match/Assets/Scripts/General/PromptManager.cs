@@ -255,7 +255,7 @@ public class PromptManager : MonoBehaviour
 
 
     //Split the sticker asset name
-    //check if it's in the list of stickersToChange
+    //check if it's in the _list of stickersToChange
 
     public static bool IsStickerAffectedByPrompts(List<Affect> prompts, DraggableSticker sticker)
     {

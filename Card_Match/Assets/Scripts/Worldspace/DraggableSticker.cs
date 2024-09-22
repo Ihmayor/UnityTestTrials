@@ -16,6 +16,8 @@ public class DraggableSticker : MonoBehaviour
     private float _startX, _startY;
     private bool _isBeingHeld, _isFromSheet;
 
+    private readonly int STICKER_SCALE_HEIGHT = 85;
+
     public void Awake()
     {
         _originalPosition = transform.position;
@@ -80,8 +82,6 @@ public class DraggableSticker : MonoBehaviour
         Destroy(GetComponent<Rigidbody2D>());
         transform.SetParent(pRectTransform.parent, false);
 
-        transform.position = Camera.main.WorldToScreenPoint(transform.localPosition);
-
         Image UIImage = gameObject.GetComponent<Image>();
         if (gameObject.GetComponent<Image>() == null)
         {
@@ -90,7 +90,7 @@ public class DraggableSticker : MonoBehaviour
 
         UIImage.sprite = stickerAsset.stickerSprite;
         UIImage.preserveAspect = true;
-        UIImage.rectTransform.sizeDelta = stickerAsset.scale;
+        UIImage.rectTransform.sizeDelta = new Vector2(STICKER_SCALE_HEIGHT / 2, STICKER_SCALE_HEIGHT);
+        transform.localPosition = transform.localPosition * STICKER_SCALE_HEIGHT;
     }
-
 }

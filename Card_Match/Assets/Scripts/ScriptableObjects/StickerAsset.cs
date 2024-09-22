@@ -11,7 +11,6 @@ public class StickerAsset : ScriptableObject
     public Affect shape;
     public float posX;
     public float posY;
-    public Vector2 scale;
     public Sprite stickerSprite;
 
     public StickerAsset (GameObject gameObject)
