@@ -63,8 +63,9 @@ public class CharacterManager : MonoBehaviour
                 _playerStats.WarmthMeter += ThawFactor;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && _playerStats.IsOutside)
+        if (Input.GetKeyDown(KeyCode.E) && _playerStats.IsOutside && _playerStats.IsFreezing)
         {
+            Debug.Log("Using Match!");
             UseMatch();
         }
     }
