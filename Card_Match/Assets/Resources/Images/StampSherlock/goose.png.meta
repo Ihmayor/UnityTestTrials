@@ -114,9 +114,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 219
-        width: 44
-        height: 97
+        y: 211
+        width: 55
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,7 +155,7 @@ TextureImporter:
       name: goose_body
       rect:
         serializedVersion: 2
-        x: 49
+        x: 74
         y: 151
         width: 156
         height: 95
