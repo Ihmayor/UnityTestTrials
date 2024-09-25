@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5050046572336725022}
   - component: {fileID: 683932102151304341}
   - component: {fileID: 7150469898698161609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: box_med
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -141,7 +141,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

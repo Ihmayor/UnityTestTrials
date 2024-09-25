@@ -13,7 +13,7 @@ public class PickupItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.parent != null)
+        if (transform.parent != null && transform.parent.tag.Contains("Player"))
         {
             CenterBox();
         }

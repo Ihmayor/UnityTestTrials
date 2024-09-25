@@ -1,0 +1,12 @@
+.header {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.button {
+    width: auto;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+}

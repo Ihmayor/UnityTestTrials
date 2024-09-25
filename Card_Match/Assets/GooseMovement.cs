@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class GooseMovement : MonoBehaviour
@@ -35,14 +36,11 @@ public class GooseMovement : MonoBehaviour
                 ToggleMoving();
         }
     }
-
     void ToggleMoving()
     {
         bool currentWalkingState = _animator.GetBool(WALKING_ANIMATION_BOOL_NAME);
         _animator.SetBool(WALKING_ANIMATION_BOOL_NAME, !currentWalkingState);
     }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string tagOfCollider = collision.collider.tag;
@@ -56,9 +54,7 @@ public class GooseMovement : MonoBehaviour
                 break;
             default:
                 return;
-
         }
-
     }
 
     private void TurnAtObstacle()
@@ -85,14 +81,35 @@ public class GooseMovement : MonoBehaviour
         }
     }
 
-    private void DropItem()
+    public void ThrowLeft()
     {
+        DropItem(new Vector2(-250f, 800));
+        if (HasNoItems())
+            _animator.SetBool(HOLDING_ANIMATION_BOOL_NAME, false);
+    }
+
+    public void ThrowRight()
+    {
+        DropItem(new Vector2(250f, 800));
+        if (HasNoItems())
+            _animator.SetBool(HOLDING_ANIMATION_BOOL_NAME, false);
+    }
+
+    private void DropItem(Vector2 dropForce)
+    {
+        if (HasNoItems())
+            return;
         GameObject pickedupItem = transform.GetComponentInChildren<PickupItem>().gameObject;
         if (pickedupItem != null) 
         {
             pickedupItem.transform.SetParent(null);
-            pickedupItem.transform.position = transform.position + new Vector3(0, 0.4f, 0);
+            pickedupItem.GetComponent<Rigidbody2D>().AddForce(dropForce);
         }
+    }
+
+    private bool HasNoItems()
+    {
+        return transform.GetComponentInChildren<PickupItem>() == null;
     }
 
 }

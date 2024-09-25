@@ -61,6 +61,10 @@ PrefabInstance:
       value: -0.06853309
       objectReference: {fileID: 0}
     - target: {fileID: 798370513316103888, guid: 5a46d90a604e9ad41986afc9b4d58a5c, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 798370513316103888, guid: 5a46d90a604e9ad41986afc9b4d58a5c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.76
       objectReference: {fileID: 0}
@@ -75,6 +79,14 @@ PrefabInstance:
     - target: {fileID: 1271459356449926852, guid: 5a46d90a604e9ad41986afc9b4d58a5c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345314521782906706, guid: 5a46d90a604e9ad41986afc9b4d58a5c, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345314521782906706, guid: 5a46d90a604e9ad41986afc9b4d58a5c, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
