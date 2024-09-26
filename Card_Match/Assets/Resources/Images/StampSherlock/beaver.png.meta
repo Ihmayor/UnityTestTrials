@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: a305e726d0a89164bbcfb8c3c0055df4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beaver_hand_left
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 280
+        width: 24
+        height: 27
+      alignment: 9
+      pivot: {x: 0.116892256, y: 0.44407144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4decb5c735f524697d1e5a4305ac11
+      internalID: 1832138513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_hand_right
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 282
+        width: 15
+        height: 24
+      alignment: 9
+      pivot: {x: 0.7910721, y: 0.64054996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb712f4ea2ab94e4ba396f8855562138
+      internalID: 149643166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_foot_right
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 246
+        width: 23
+        height: 21
+      alignment: 9
+      pivot: {x: 0.28836027, y: 0.61039805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37353ba02f69f7d429725e3fd91531f6
+      internalID: -408038710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_foot_left
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 239
+        width: 27
+        height: 17
+      alignment: 9
+      pivot: {x: 0.3139534, y: 0.8343793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c40eedadfb05a54c831d15d3dbd90e4
+      internalID: 2054488223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_tail
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 143
+        width: 150
+        height: 80
+      alignment: 9
+      pivot: {x: 0.952657, y: 0.3629654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c50b2d5d344054688f1fc70b569432
+      internalID: -1349233216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_head
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 201
+        width: 158
+        height: 117
+      alignment: 9
+      pivot: {x: 0.47985628, y: 0.27028677}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527b11e3c36b58d4cac5e477c15d0fe3
+      internalID: 1845043213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_body
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 27
+        width: 176
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e20e4f123136948b8329eb6f46b6da
+      internalID: 1043988112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_style1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 187
+        width: 159
+        height: 136
+      alignment: 9
+      pivot: {x: 0.496083, y: 0.165732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb20d22c21b02148a1649e7065e550c
+      internalID: 1046389124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_style2
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 11
+        width: 158
+        height: 129
+      alignment: 9
+      pivot: {x: 0.4605854, y: 0.22483338}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59018ad87c2e02646a69eb1fc21065b0
+      internalID: 1480899892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_style3
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 190
+        width: 158
+        height: 129
+      alignment: 9
+      pivot: {x: 0.46452698, y: 0.20552324}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f122827209de1d2439be19177f371504
+      internalID: -1687620653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beaver_style4
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 13
+        width: 158
+        height: 139
+      alignment: 9
+      pivot: {x: 0.468468, y: 0.17294657}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ae5e3edbcea034b83ea2cfc0454856
+      internalID: 1598177788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      beaver_body: 1043988112
+      beaver_foot_left: 2054488223
+      beaver_foot_right: -408038710
+      beaver_hand_left: 1832138513
+      beaver_hand_right: 149643166
+      beaver_head: 1845043213
+      beaver_style1: 1046389124
+      beaver_style2: 1480899892
+      beaver_style3: -1687620653
+      beaver_style4: 1598177788
+      beaver_tail: -1349233216
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
