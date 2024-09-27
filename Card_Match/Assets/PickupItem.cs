@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (transform.parent != null && transform.parent.tag.Contains("Player"))
@@ -21,6 +14,7 @@ public class PickupItem : MonoBehaviour
     
     private void CenterBox()
     {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Vector3 positionAtCollision = transform.localPosition;
         transform.localPosition = new Vector3(-0.1f, positionAtCollision.y, positionAtCollision.z);
     }

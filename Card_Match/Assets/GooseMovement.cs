@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class GooseMovement : MonoBehaviour
@@ -9,6 +8,18 @@ public class GooseMovement : MonoBehaviour
 
     [SerializeField]
     float speed = 0.1f;
+
+    [SerializeField]
+    private LineRenderer LineRenderer;
+    [SerializeField]
+    private Transform ReleasePosition;
+    [Header("Display Controls")]
+    [SerializeField]
+    [Range(10, 100)]
+    private int LinePoints = 25;
+    [SerializeField]
+    [Range(0.01f, 0.25f)]
+    private float TimeBetweenPoints = 0.1f;
 
     private bool _hasFlipped;
     private bool _isTurning;
@@ -32,15 +43,28 @@ public class GooseMovement : MonoBehaviour
             AnimatorStateInfo state = _animator.GetCurrentAnimatorStateInfo(0);
             if (state.IsName(WALK_ANIMATION_STATE))
                 transform.position += new Vector3(_hasFlipped ? speed : -speed, 0, 0);
-            if (Input.GetKeyUp(KeyCode.J))
-                ToggleMoving();
+            if (HasNoItems())
+                _animator.SetBool(HOLDING_ANIMATION_BOOL_NAME, false);
+            else
+            {
+                //Nullify any pushback received from the package tossed
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                SetMoving(true);
+            }
         }
     }
     void ToggleMoving()
     {
         bool currentWalkingState = _animator.GetBool(WALKING_ANIMATION_BOOL_NAME);
-        _animator.SetBool(WALKING_ANIMATION_BOOL_NAME, !currentWalkingState);
+        SetMoving(!currentWalkingState);
     }
+
+    void SetMoving(bool _isMoving)
+    {
+        _animator.SetBool(WALKING_ANIMATION_BOOL_NAME, _isMoving);
+    }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string tagOfCollider = collision.collider.tag;
@@ -81,35 +105,80 @@ public class GooseMovement : MonoBehaviour
         }
     }
 
+    public void ThrowBelow()
+    {
+        DropItem(new Vector2(0, -5));
+    }
+
     public void ThrowLeft()
     {
-        DropItem(new Vector2(-250f, 800));
-        if (HasNoItems())
-            _animator.SetBool(HOLDING_ANIMATION_BOOL_NAME, false);
+        DropItem(new Vector2(-250f, 600));
     }
 
     public void ThrowRight()
     {
-        DropItem(new Vector2(250f, 800));
-        if (HasNoItems())
-            _animator.SetBool(HOLDING_ANIMATION_BOOL_NAME, false);
+        DropItem(new Vector2(250f, 600));
     }
 
-    private void DropItem(Vector2 dropForce)
+    private void DropItem(Vector3 dropForce)
     {
         if (HasNoItems())
+        {
+            _animator.SetBool(HOLDING_ANIMATION_BOOL_NAME, false);
             return;
+        }
         GameObject pickedupItem = transform.GetComponentInChildren<PickupItem>().gameObject;
+        
         if (pickedupItem != null) 
         {
             pickedupItem.transform.SetParent(null);
-            pickedupItem.GetComponent<Rigidbody2D>().AddForce(dropForce);
+            if (dropForce.y < 0)
+            {
+                pickedupItem.transform.position = gameObject.transform.position + dropForce;
+            }
+            else
+            {
+                //Add Force in the correct direction to toss the item
+                Rigidbody2D pickedUpItemRb2d = pickedupItem.GetComponent<Rigidbody2D>();
+                pickedUpItemRb2d.AddRelativeForce(dropForce);
+            }
         }
     }
 
     private bool HasNoItems()
     {
         return transform.GetComponentInChildren<PickupItem>() == null;
+    }
+
+
+    IEnumerator ShowTrajectory(Vector3 DropForce, Rigidbody2D rb2dItem)
+    {
+        yield return new WaitForSeconds(0.1f);
+        while (rb2dItem.velocity != Vector2.zero)
+        {
+            DrawProjection(rb2dItem.mass, DropForce);
+            yield return null;
+        }
+
+        LineRenderer.enabled = false;
+        yield return null;
+    }
+
+    private void DrawProjection(float mass, Vector3 dropForce)
+    {
+        LineRenderer.enabled = true;
+        LineRenderer.positionCount = Mathf.CeilToInt(LinePoints / TimeBetweenPoints) + 1;
+        Vector3 startPosition = ReleasePosition.position;
+        Vector3 startVelocity = dropForce/ (mass * 50);
+        int i = 0;
+        LineRenderer.SetPosition(i, startPosition);
+        for (float time = 0; time < LinePoints; time += TimeBetweenPoints)
+        {
+            i++;
+            Vector3 point = startPosition + time * startVelocity;
+            point.y = startPosition.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time);
+            LineRenderer.SetPosition(i, point);
+        }   
     }
 
 }

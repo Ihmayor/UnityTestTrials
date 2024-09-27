@@ -113,10 +113,10 @@ TextureImporter:
       name: boxes_tube
       rect:
         serializedVersion: 2
-        x: 14
-        y: 10
-        width: 37
-        height: 186
+        x: 4
+        y: 216
+        width: 186
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,8 +134,8 @@ TextureImporter:
       name: boxes_twine
       rect:
         serializedVersion: 2
-        x: 75
-        y: 147
+        x: 25
+        y: 146
         width: 38
         height: 48
       alignment: 0
@@ -155,10 +155,10 @@ TextureImporter:
       name: boxes_medium
       rect:
         serializedVersion: 2
-        x: 128
-        y: 180
+        x: 94
+        y: 165
         width: 52
-        height: 37
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,8 @@ TextureImporter:
       name: boxes_small
       rect:
         serializedVersion: 2
-        x: 130
-        y: 138
+        x: 96
+        y: 133
         width: 37
         height: 18
       alignment: 0

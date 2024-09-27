@@ -288,8 +288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0225, y: 0.0225}
   m_AnchorMax: {x: 0.97625005, y: 0.97125006}
-  m_AnchoredPosition: {x: 1.1014404, y: -2.2199097}
-  m_SizeDelta: {x: 2.2029, y: 4.4398}
+  m_AnchoredPosition: {x: -1.2361145, y: 29.917404}
+  m_SizeDelta: {x: -66.7469, y: -89.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17954029
 MonoBehaviour:
@@ -324,12 +324,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You goal in this game is to confuse your opponent while deducing what
-    changes your opponent has made.
-
-
-    You are in the decorate phase, go ahead,
-    decorate your cards!'
+  m_Text: You goal in this game is to confuse your opponent while deducing what changes
+    your opponent has made.
 --- !u!222 &17954030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -588,6 +584,7 @@ GameObject:
   - component: {fileID: 83429057}
   - component: {fileID: 83429056}
   - component: {fileID: 83429055}
+  - component: {fileID: 83429058}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -670,6 +667,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1590678386}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &83429056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +717,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83429053}
   m_CullTransparentMesh: 1
+--- !u!114 &83429058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83429053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9273f257fa6710142863f99fabf3bbcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &92613649
 GameObject:
   m_ObjectHideFlags: 0
@@ -4684,6 +4705,7 @@ GameObject:
   - component: {fileID: 1224657268}
   - component: {fileID: 1224657267}
   - component: {fileID: 1224657266}
+  - component: {fileID: 1224657269}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -4790,6 +4812,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1590678386}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1224657267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4828,6 +4862,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224657264}
   m_CullTransparentMesh: 1
+--- !u!114 &1224657269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224657264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9273f257fa6710142863f99fabf3bbcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1227271394
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,7 +5724,6 @@ GameObject:
   - component: {fileID: 1290151798}
   - component: {fileID: 1290151797}
   - component: {fileID: 1290151796}
-  - component: {fileID: 1290151800}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -5770,18 +5815,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1290151800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290151795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 986a4799c5d74a94cbccaf5dce6d39bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1295481312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5832,7 +5865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1224657264}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1295481315
@@ -6423,7 +6456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8279eb119d4dfff40af5578d61943afe, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6754,6 +6787,7 @@ MonoBehaviour:
   text: {fileID: 17954029}
   BG: {fileID: 984790565}
   panel: {fileID: 1496119733}
+  startMenu: {fileID: 1290151795}
 --- !u!1 &1529670011
 GameObject:
   m_ObjectHideFlags: 0
@@ -6934,6 +6968,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f3844e6261dca343963f75d5352ebbd, type: 3}
   - {fileID: 8300000, guid: f1182c33975a1fd4c92726281a9a240a, type: 3}
   - {fileID: 8300000, guid: 3195f02c70a59294d8b1f27079126235, type: 3}
+  clickSound: {fileID: 8300000, guid: a579f20e1e367a74aa7c9aab28f7e5fb, type: 3}
 --- !u!1 &1671736663
 GameObject:
   m_ObjectHideFlags: 0

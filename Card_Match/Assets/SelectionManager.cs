@@ -27,18 +27,18 @@ public class SelectionManager : MonoBehaviour
     void Update()
     {
         float horizontalAxisValue = Input.GetAxis("Horizontal");
+        Debug.Log(horizontalAxisValue);
         float diff = Mathf.Abs(horizontalAxisValue - _prevHorizontalValue);
         if (horizontalAxisValue == 0)
         {
             return;
         }
 
-        if (diff <= 0.5f && !_isSelecting)
+        if (Mathf.Abs(horizontalAxisValue) > 0.6f && !_isSelecting)
         {
             StartCoroutine(SwitchSelection(1));
         }
-
-        if (diff > 0.5f)
+        else if (Mathf.Abs(horizontalAxisValue) > 0)
         {
             StopCoroutine(SwitchSelection(1));
             StartCoroutine(SwitchSelection(0));

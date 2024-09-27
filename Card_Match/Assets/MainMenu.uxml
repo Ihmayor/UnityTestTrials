@@ -1,7 +1,2 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Header" class="header" />
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="button" style="position: absolute; top: 70%; left: 20%; width: 198px;" />
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="button" style="position: absolute; top: 557px; left: auto; right: 179px; width: 175px;" />
-    </ui:VisualElement>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
 </ui:UXML>
