@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/Button.uss?fileID=7433441132597879392&amp;guid=917498bb87c0f62449ee9f6f86cac839&amp;type=3#Button" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:GroupBox style="flex-direction: row; visibility: visible; position: absolute; top: 75%; left: auto; width: 791px; height: 99px; -unity-text-align: upper-center; align-items: stretch; justify-content: center;">
-            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LeftButton" class="button" style="width: 286px; -unity-text-align: middle-center; white-space: nowrap;" />
-            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RightButton" class="button" style="height: 82px; width: 287px;" />
-        </ui:GroupBox>
-    </ui:VisualElement>
-</ui:UXML>
